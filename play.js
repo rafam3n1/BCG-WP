@@ -22,7 +22,7 @@ socket.on("avaliable", function(msg){
 ///REDIFININDO ONCLICK BOTÕES
 
 
-document.addEventListener("DOMContentLoaded", function(event) {
+$(document).ready(function(){
     $("#launcher-botao")[0].onclick=(function(){
         console.log("Launchers aberto")
         gameSelecionado='launchers'
