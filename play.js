@@ -7,6 +7,7 @@ fetch('https://grupobright.com/checkuser.php')
 
 
 
+
 const socket = io.connect("https://play.grupobright.com",{
     query: {
         token: token
