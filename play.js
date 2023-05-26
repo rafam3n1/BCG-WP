@@ -21,6 +21,9 @@ socket.on("avaliable", function(msg){
 
 ///REDIFININDO ONCLICK BOTÕES
 
-$("#launcher-botao")[0].onclick=(function(){
-    gameSelecionado='launchers'
-})
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    $("#launcher-botao")[0].onclick=(function(){
+        gameSelecionado='launchers'
+    })
+});
