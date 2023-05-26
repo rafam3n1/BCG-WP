@@ -2,7 +2,7 @@ let tokenSelecionado
 fetch('https://grupobright.com/checkuser.php')
 .then(function(response) {
     tokenSelecionado=response.text();
-  return response.text();
+    return;
 })
 
 const socket = io.connect("https://play.grupobright.com",{
