@@ -5,8 +5,8 @@ socket.on('connect',  function (msg) {
 
 
 socket.on("created", async function (msg) {
-    $("#ip")[0].value = msg.ip
-    $("#senha")[0].value = msg.password
+    $("#form-field-ip")[0].value = msg.ip
+    $("#form-field-senha")[0].value = msg.password
     $("#loading")[0].style.display="none"
     $("#vm-criada")[0].style.display="flex"  
 })
