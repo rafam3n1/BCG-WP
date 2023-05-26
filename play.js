@@ -1,5 +1,4 @@
-window.game=''
-game='selecionado'
+
 
 const socket = io.connect("https://play.grupobright.com");
 socket.on('connect',  function (msg) {
@@ -16,4 +15,12 @@ socket.on("created", async function (msg) {
 
 socket.on("avaliable", function(msg){
     console.log(`Google: ${msg.google} - Azure: ${msg.azure}`)
+})
+
+
+
+///REDIFININDO ONCLICK BOTÕES
+
+$("#launcher-botao")[0].onclick=(function(){
+    gameSelecionado='launchers'
 })
