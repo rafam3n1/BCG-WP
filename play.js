@@ -1,4 +1,8 @@
 
+await fetch('https://grupobright.com/checkuser.php')
+.then(function(response) {
+  return response.text();
+})
 
 const socket = io.connect("https://play.grupobright.com");
 socket.on('connect',  function (msg) {
@@ -14,6 +18,12 @@ socket.on("created", async function (msg) {
 })
 
 socket.on("vms",async function (msg){
+    console.log(msg)
+    socket.emit("vmCommand", { "evento": "CreateVM", "game": gameSelecionado })
+    //socket.emit("vmCommand", { "evento": "List"})
+})
+
+socket.on("status",async function(msg){
     console.log(msg)
 })
 
