@@ -1,5 +1,5 @@
 
-await fetch('https://grupobright.com/checkuser.php')
+fetch('https://grupobright.com/checkuser.php')
 .then(function(response) {
   return response.text();
 })
