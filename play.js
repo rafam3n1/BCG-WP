@@ -13,6 +13,10 @@ socket.on("created", async function (msg) {
     $("#vm-criada")[0].style.display="flex"  
 })
 
+socket.on("vms",async function (msg){
+    console.log(msg)
+})
+
 socket.on("avaliable", function(msg){
     console.log(`Google: ${msg.google} - Azure: ${msg.azure}`)
 })
@@ -25,7 +29,15 @@ socket.on("avaliable", function(msg){
 $(document).ready(function(){
     console.log("Pagina carregada")
     $("#launcher-botao")[0].onclick=(function(){
-        console.log("Launchers aberto")
         gameSelecionado='launchers'
     })
+
+    $("#fifa23-botao")[0].onclick=(function(){
+        gameSelecionado='fifa23'
+    })
+
+    $("#csgo-botao")[0].onclick=(function(){
+        gameSelecionado='cs-go'
+    })
+
 });
