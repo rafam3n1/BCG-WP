@@ -24,6 +24,7 @@ socket.on("avaliable", function(msg){
 
 document.addEventListener("DOMContentLoaded", function(event) {
     $("#launcher-botao")[0].onclick=(function(){
+        console.log("Launchers aberto")
         gameSelecionado='launchers'
     })
 });
