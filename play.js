@@ -1,16 +1,13 @@
-let token
+let tokenSelecionado
 fetch('https://grupobright.com/checkuser.php')
 .then(function(response) {
-    token=response.text();
+    tokenSelecionado=response.text();
   return response.text();
 })
 
-
-
-
 const socket = io.connect("https://play.grupobright.com",{
     query: {
-        token: token
+        token: tokenSelecionado
     }
 });
 socket.on('connect',  function (msg) {
