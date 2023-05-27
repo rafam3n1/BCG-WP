@@ -1,6 +1,4 @@
-
-
-const socket = io.connect("https://play.grupobright.com");
+const socket = io.connect("https://play.grupobright.com:8080");
 
     
     
