@@ -104,7 +104,6 @@ socket.on("assinatura",async function(msg){
     }
 })
 
-
 socket.on("fisica2", async function(msg){
     var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
     var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
