@@ -9,6 +9,18 @@ socket.on("criado", async function (mesg) {
     $("#form-field-senha")[0].value = mesg.password
 })
 
+socket.on("reconnect",async function(msg){
+    var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+    var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
+    
+
+    if(msg!="NADA"){
+        $("#loading")[0].style.display="flex"
+        $("#jogos")[0].style.display="none"
+        firstItem.innerHTML=msg
+    }
+})
+
 socket.on("interrompido",async function(msg){
     var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
     var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
