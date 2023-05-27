@@ -88,6 +88,9 @@ socket.on("avaliable", function(msg){
     console.log(`Google: ${msg.google} - Azure: ${msg.azure}`)
 })
 
+socket.on("assinatura",async function(msg){
+    console.log(`Status assinatura - ${msg}`)
+})
 
 
 ///REDEFININDO ONCLICK BOTÕES
