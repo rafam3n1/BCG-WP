@@ -91,7 +91,7 @@ socket.on("avaliable", function(msg){
 socket.on("assinatura",async function(msg){
     console.log(`Status assinatura - ${msg}`)
     if (!msg){
-        window.location.href="https://grupobright.com/jogar/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6Ijc2NjUiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D"
+        elementorProFrontend.modules.popup.showPopup({id:7665})
     }else{
         socket.emit("choose","fisica")
         socket.emit("vmCommand", { "evento": "List"})
