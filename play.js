@@ -113,6 +113,9 @@ $(document).ready(function(){
 
     $("#desligarvm-botao")[0].onclick=(function(){
         socket.emit('interromper',{'feedback':'Feedback setado automaticamente (site novo)','stars':'star-5'})
+        $("#vm-criada")[0].style.display="none" 
+        $("#jogos")[0].style.display="flex"
+
     })
     
 });
