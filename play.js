@@ -90,11 +90,24 @@ socket.on("avaliable", function(msg){
 
 
 
-///REDIFININDO ONCLICK BOTÕES
+///REDEFININDO ONCLICK BOTÕES
 
 
 $(document).ready(function(){
     console.log("Pagina carregada")
+    
+
+    $("#priority-botao")[0].onclick=(async function(){
+        let tokenPriority
+        await fetch('https://grupobright.com/checkpriority.php')
+        .then(async function(response) {
+            tokenPriority=await response.text();
+            console.log("Response checagem priority: "+tokenPriority)
+            socket.emit('checarAssinatura', tokenPriority);
+        })
+        
+    })
+
     $("#launcher-botao")[0].onclick=(function(){
         gameSelecionado='bcg'
     })
