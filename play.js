@@ -1,13 +1,16 @@
-let tokenSelecionado
-fetch('https://grupobright.com/checkuser.php')
-.then(function(response) {
-    tokenSelecionado=response.text();
-})
+
 
 const socket = io.connect("https://play.grupobright.com");
 
 
-socket.on('connect',  function (msg) {
+socket.on('connect', async function (msg) {
+
+    let tokenSelecionado
+    await fetch('https://grupobright.com/checkuser.php')
+    .then(function(response) {
+        tokenSelecionado=response.text();
+    })
+
     console.log("Conectado ao Servidor")
     console.log("Servidor: "+tokenSelecionado)
     socket.emit('authenticate', tokenSelecionado);
