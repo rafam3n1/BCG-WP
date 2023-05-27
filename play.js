@@ -83,6 +83,7 @@ socket.on("avaliable", function(msg){
     var listItems = disponiveis.querySelectorAll("li");
     listItems[0].querySelector(".elementor-icon-list-text").textContent=msg.google //GOOGLE
     listItems[1].querySelector(".elementor-icon-list-text").textContent=msg.azure // AZURE
+    listItems[2].querySelector(".elementor-icon-list-text").textContent=msg.priority // AZURE
     console.log(`Google: ${msg.google} - Azure: ${msg.azure}`)
 })
 
