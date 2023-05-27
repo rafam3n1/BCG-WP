@@ -90,6 +90,27 @@ socket.on("avaliable", function(msg){
 
 socket.on("assinatura",async function(msg){
     console.log(`Status assinatura - ${msg}`)
+    if (!assinatura){
+        window.location.href="https://grupobright.com/jogar/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6Ijc2NjUiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D"
+    }else{
+        socket.emit("choose","fisica")
+        socket.emit("vmCommand", { "evento": "List"})
+
+        $("#jogos")[0].style.display="none"
+        $("#loading")[0].style.display="flex"
+
+        
+
+    }
+})
+
+
+socket.on("fisica2", async function(msg){
+    var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+    var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
+    firstItem.innerHTML="Carregando sua VM Física"
+
+    socket.emit("vmCommand", { "evento": "CreateVM"})
 })
 
 
