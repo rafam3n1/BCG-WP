@@ -90,7 +90,7 @@ socket.on("avaliable", function(msg){
 
 socket.on("assinatura",async function(msg){
     console.log(`Status assinatura - ${msg}`)
-    if (!assinatura){
+    if (!msg){
         window.location.href="https://grupobright.com/jogar/#elementor-action%3Aaction%3Dpopup%3Aopen%26settings%3DeyJpZCI6Ijc2NjUiLCJ0b2dnbGUiOmZhbHNlfQ%3D%3D"
     }else{
         socket.emit("choose","fisica")
