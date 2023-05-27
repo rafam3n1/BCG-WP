@@ -33,7 +33,9 @@ socket.on("vms",async function (msg){
 })
 
 socket.on("status",async function(msg){
-    console.log(msg)
+    var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+    var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
+    firstItem.innerHTML=msg
 })
 
 socket.on("avaliable", function(msg){
