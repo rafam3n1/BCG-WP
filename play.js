@@ -2,16 +2,17 @@
 
 const socket = io.connect("https://play.grupobright.com");
 
+    
+    
+socket.on("criado", async function (mesg) {
+    $("#jogos")[0].style.display="none"  
+    $("#vm-criada")[0].style.display="flex"  
+    $("#form-field-ip")[0].value = mesg.ip
+    $("#form-field-senha")[0].value = mesg.password
+})
 
 socket.on('connect', async function (msg) {
 
-    
-    
-    socket.on("criado", async function (mesg) {
-        $("#vm-criada")[0].style.display="flex"  
-        $("#form-field-ip")[0].value = mesg.ip
-        $("#form-field-senha")[0].value = mesg.password
-    })
 
 
     let tokenSelecionado
