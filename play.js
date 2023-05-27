@@ -2,7 +2,6 @@ let tokenSelecionado
 fetch('https://grupobright.com/checkuser.php')
 .then(function(response) {
     tokenSelecionado=response.text();
-    return;
 })
 
 const socket = io.connect("https://play.grupobright.com");
@@ -10,6 +9,7 @@ const socket = io.connect("https://play.grupobright.com");
 
 socket.on('connect',  function (msg) {
     console.log("Conectado ao Servidor")
+    console.log("Servidor: "+tokenSelecionado)
     socket.emit('authenticate', tokenSelecionado);
 });
 
