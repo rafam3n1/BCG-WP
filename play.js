@@ -107,4 +107,8 @@ $(document).ready(function(){
         gameSelecionado='cs-go'
     })
 
+    $("#pair-button")[0].onclick=(function(){
+        socket.emit("auth", $("#form-field-pin")[0].value)
+    })
+
 });
