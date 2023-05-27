@@ -77,6 +77,12 @@ socket.on("status",async function(msg){
 })
 
 socket.on("avaliable", function(msg){
+    var disponiveis = document.getElementById("disponiveis");
+
+    // Seleciona todos os elementos <li> dentro de "disponiveis"
+    var listItems = disponiveis.querySelectorAll("li");
+    listItems[0].querySelector(".elementor-icon-list-text").textContent=msg.google //GOOGLE
+    listItems[1].querySelector(".elementor-icon-list-text").textContent=msg.azure // AZURE
     console.log(`Google: ${msg.google} - Azure: ${msg.azure}`)
 })
 
