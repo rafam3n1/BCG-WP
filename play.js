@@ -7,13 +7,14 @@ socket.on('connect', async function (msg) {
 
     let tokenSelecionado
     await fetch('https://grupobright.com/checkuser.php')
-    .then(function(response) {
-        tokenSelecionado=response.text();
+    .then(async function(response) {
+        tokenSelecionado=await response.text();
+        console.log("Conectado ao Servidor")
+        console.log("Servidor: "+tokenSelecionado)
+        socket.emit('authenticate', tokenSelecionado);
     })
 
-    console.log("Conectado ao Servidor")
-    console.log("Servidor: "+tokenSelecionado)
-    socket.emit('authenticate', tokenSelecionado);
+    
 });
 
 
