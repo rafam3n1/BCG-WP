@@ -100,7 +100,9 @@ socket.on("assinatura",async function(msg){
         $("#loading")[0].style.display="flex"
 
         
-
+        var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+        var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
+        firstItem.innerHTML="Espere 20 segundos que sua VM está carregando"
     }
 })
 
