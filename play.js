@@ -90,7 +90,7 @@ socket.on("avaliable", function(msg){
 
 socket.on("assinatura",async function(msg){
     console.log(`Status assinatura - ${msg}`)
-    if (!msg){
+    if (msg==false){
         elementorProFrontend.modules.popup.showPopup({id:7665})
     }else{
         socket.emit("choose","fisica")
