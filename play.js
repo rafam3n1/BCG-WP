@@ -111,4 +111,8 @@ $(document).ready(function(){
         socket.emit("auth", $("#form-field-pin")[0].value)
     })
 
+    $("#desligarvm-botao")[0].onclick=(function(){
+        socket.emit('interromper',{'feedback':'Feedback setado automaticamente (site novo)','stars':'star-5'})
+    })
+    
 });
