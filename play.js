@@ -50,7 +50,7 @@ socket.on("avaliable", function(msg){
 $(document).ready(function(){
     console.log("Pagina carregada")
     $("#launcher-botao")[0].onclick=(function(){
-        gameSelecionado='launcher'
+        gameSelecionado='bcg'
     })
 
     $("#fifa23-botao")[0].onclick=(function(){
