@@ -40,6 +40,7 @@ socket.on("error",async function(msg){
 
 socket.on('connect', async function (msg) {
 
+    socket.emit("getVms","")
 
 
     let tokenSelecionado
