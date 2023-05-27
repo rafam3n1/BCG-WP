@@ -5,6 +5,15 @@ const socket = io.connect("https://play.grupobright.com");
 
 socket.on('connect', async function (msg) {
 
+    
+    
+    socket.on("criado", async function (msg) {
+        $("#vm-criada")[0].style.display="flex"  
+        $("#form-field-ip")[0].value = msg.ip
+        $("#form-field-senha")[0].value = msg.password
+    })
+
+
     let tokenSelecionado
     await fetch('https://grupobright.com/checkuser.php')
     .then(async function(response) {
@@ -18,20 +27,14 @@ socket.on('connect', async function (msg) {
 });
 
 
-
 socket.on("created", async function (msg) {
     $("#loading")[0].style.display="none"
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
-    
 })
 
-socket.on("criado", async function (msg) {
-    $("#vm-criada")[0].style.display="flex"  
-    $("#form-field-ip")[0].value = msg.ip
-    $("#form-field-senha")[0].value = msg.password
-})
+
 
 socket.on("vms",async function (msg){
     console.log(msg)
