@@ -17,6 +17,15 @@ socket.on("interrompido",async function(msg){
     $("#jogos")[0].style.display="flex"  
 })
 
+
+socket.on("error",async function(msg){
+    var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+    var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
+    firstItem.innerHTML="Carregando"
+    $("#loading")[0].style.display="none"
+    $("#jogos")[0].style.display="flex"  
+})
+
 socket.on('connect', async function (msg) {
 
 
