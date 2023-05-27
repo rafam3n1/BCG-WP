@@ -7,9 +7,6 @@ socket.on("criado", async function (mesg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
-    $("#pair-button")[0].onclick=(function(){
-        socket.emit("auth", $("#form-field-pin")[0].value)
-    })
 })
 
 socket.on("reconnect",async function(msg){
@@ -64,9 +61,6 @@ socket.on("created", async function (msg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
-    $("#pair-button")[0].onclick=(function(){
-        socket.emit("auth", $("#form-field-pin")[0].value)
-    })
 })
 
 
@@ -113,6 +107,8 @@ $(document).ready(function(){
         gameSelecionado='cs-go'
     })
 
-    
+    $("#pair-button")[0].onclick=(function(){
+        socket.emit("auth", $("#form-field-pin")[0].value)
+    })
 
 });
