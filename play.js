@@ -134,75 +134,74 @@ $(document).ready(function(){
     })
 
 
-    //SETANDO JOGOS QUANDO CLICA NO BOTAO
+    
+//SETANDO JOGOS QUANDO CLICA NO BOTAO
+
+//LAUNCHERS
     $("#launcher-botao")[0].onclick=(function(){
         gameSelecionado='bcg'
     })
-
+//FIFA23
     $("#fifa23-botao")[0].onclick=(function(){
         gameSelecionado='fifa23'
     })
-
+//CS-GO
     $("#csgo-botao")[0].onclick=(function(){
         gameSelecionado='cs-go'
     })
-
+//BLACK DESERT
     $("#bdo-botao")[0].onclick=(function(){
         gameSelecionado='blackdesert'
     })
-
+//COD WARZONE
     $("#warzone-botao")[0].onclick=(function(){
         gameSelecionado='cod'
     })
-
+//ELDERRING
     $("#eldenring-botao")[0].onclick=(function(){
         gameSelecionado='eldenring'
     })
-
+//GTA STEAM
     $("#gtav-steam-botao")[0].onclick=(function(){
         gameSelecionado='gtav-steam'
     })
-
+//GTA EPIC
     $("#gtav-epic-botao")[0].onclick=(function(){
         gameSelecionado='gtav-epic'
     })
-
+//HOGWARTS LEGACY
     $("#hlegacy-botao")[0].onclick=(function(){
         gameSelecionado='hlegacy'
     })
-
+//GOW 1
     $("#god-of-war-botao")[0].onclick=(function(){
         gameSelecionado='god-of-war'
     })
-
+//FIFA22
     $("#fifa22-botao")[0].onclick=(function(){
         gameSelecionado='fifa22'
     })
-
+//LOSTARK
     $("#lostark-botao")[0].onclick=(function(){
         gameSelecionado='lostark'
     })
-
+//RED DEAD
     $("#reddead-botao")[0].onclick=(function(){
         gameSelecionado='reddead'
     })
-
+//ROCKET LEAGUE EPIC
     $("#rleague-epic-botao")[0].onclick=(function(){
         gameSelecionado='rleague-epic'
     })
-
+//ROCKET LEAGUE STEAM
     $("#rleague-steam-botao")[0].onclick=(function(){
         gameSelecionado='rleague-steam'
     })
-
-    $("#rleague-epic-botao")[0].onclick=(function(){
-        gameSelecionado='rleague-epic'
-    })
-
+//HORIZON ZERO DAWN
     $("#horizonzerodawn-botao")[0].onclick=(function(){
         gameSelecionado='horizonzerodawn'
     })
-
+//OVERWATCH
     $("#overwatch-botao")[0].onclick=(function(){
         gameSelecionado='overwatch'
     })
