@@ -133,6 +133,8 @@ $(document).ready(function(){
         
     })
 
+
+    //SETANDO JOGOS QUANDO CLICA NO BOTAO
     $("#launcher-botao")[0].onclick=(function(){
         gameSelecionado='bcg'
     })
@@ -145,9 +147,75 @@ $(document).ready(function(){
         gameSelecionado='cs-go'
     })
 
+    $("#bdo-botao")[0].onclick=(function(){
+        gameSelecionado='blackdesert'
+    })
+
+    $("#warzone-botao")[0].onclick=(function(){
+        gameSelecionado='cod'
+    })
+
+    $("#eldenring-botao")[0].onclick=(function(){
+        gameSelecionado='eldenring'
+    })
+
+    $("#gtav-steam-botao")[0].onclick=(function(){
+        gameSelecionado='gtav-steam'
+    })
+
+    $("#gtav-epic-botao")[0].onclick=(function(){
+        gameSelecionado='gtav-epic'
+    })
+
+    $("#hlegacy-botao")[0].onclick=(function(){
+        gameSelecionado='hlegacy'
+    })
+
+    $("#god-of-war-botao")[0].onclick=(function(){
+        gameSelecionado='god-of-war'
+    })
+
+    $("#fifa22-botao")[0].onclick=(function(){
+        gameSelecionado='fifa22'
+    })
+
+    $("#lostark-botao")[0].onclick=(function(){
+        gameSelecionado='lostark'
+    })
+
+    $("#reddead-botao")[0].onclick=(function(){
+        gameSelecionado='reddead'
+    })
+
+    $("#rleague-epic-botao")[0].onclick=(function(){
+        gameSelecionado='rleague-epic'
+    })
+
+    $("#rleague-steam-botao")[0].onclick=(function(){
+        gameSelecionado='rleague-steam'
+    })
+
+    $("#rleague-epic-botao")[0].onclick=(function(){
+        gameSelecionado='rleague-epic'
+    })
+
+    $("#horizonzerodawn-botao")[0].onclick=(function(){
+        gameSelecionado='horizonzerodawn'
+    })
+
+    $("#overwatch-botao")[0].onclick=(function(){
+        gameSelecionado='overwatch'
+    })
+
+    //SETANDO PIN MOON
+
     $("#pair-button")[0].onclick=(function(){
         socket.emit("auth", $("#form-field-pin")[0].value)
     })
+
+
+    
+    //SETANDO FUNÇÃO DE DESLIGAR VM
 
     $("#desligarvm-botao")[0].onclick=(function(){
         socket.emit('interromper',{'feedback':'Feedback setado automaticamente (site novo)','stars':'star-5'})
