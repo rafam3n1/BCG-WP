@@ -9,6 +9,13 @@ socket.on("criado", async function (mesg) {
     $("#form-field-senha")[0].value = mesg.password
 })
 
+socket.on("RecCreated", async function (mesg) {
+    $("#jogos")[0].style.display="none"  
+    $("#vm-criada")[0].style.display="flex"  
+    $("#form-field-ip")[0].value = mesg.ip
+    $("#form-field-senha")[0].value = mesg.password
+})
+
 socket.on("reconnect",async function(msg){
     var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
     var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
