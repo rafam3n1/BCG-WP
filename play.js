@@ -117,7 +117,7 @@ socket.on("fisica2", async function(msg){
 socket.on("fila", async function (msg) {
     var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
     var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
-    firstItem.innerHTML= `Posição na fila: ${msg.position}`
+    firstItem.innerHTML= `Posição na fila: ${msg.position+1}`
     await new Promise(res => setTimeout(res, 5000));
     socket.emit("vmCommand", { "evento": "List" })
 })
