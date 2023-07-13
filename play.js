@@ -44,7 +44,7 @@ socket.on("error",async function(msg){
     $("#loading")[0].style.display="none"
     $("#jogos")[0].style.display="flex"
     elementorProFrontend.modules.popup.showPopup( { id: 11155 } );
-    $(".elementor-heading-title")[4].innerHTML=msg
+    $(".elementor-heading-title")[4].innerHTML=msg.code
     
 })
 
