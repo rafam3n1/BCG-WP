@@ -42,7 +42,9 @@ socket.on("error",async function(msg){
     var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
     firstItem.innerHTML="Carregando"
     $("#loading")[0].style.display="none"
-    $("#jogos")[0].style.display="flex"  
+    $("#jogos")[0].style.display="flex"
+    $(".elementor-heading-title")[4].innerHTML=msg
+    elementorProFrontend.modules.popup.showPopup( { id: 11155 } );
 })
 
 socket.on('connect', async function (msg) {
