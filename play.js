@@ -43,8 +43,9 @@ socket.on("error",async function(msg){
     firstItem.innerHTML="Carregando"
     $("#loading")[0].style.display="none"
     $("#jogos")[0].style.display="flex"
-    $(".elementor-heading-title")[4].innerHTML=msg
     elementorProFrontend.modules.popup.showPopup( { id: 11155 } );
+    $(".elementor-heading-title")[4].innerHTML=msg
+    
 })
 
 socket.on('connect', async function (msg) {
