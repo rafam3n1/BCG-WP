@@ -183,7 +183,6 @@ $(document).ready(function(){
         gameSelecionado='cod-steam'
     })
 
-    
 //ELDERRING
     $("#eldenring-botao")[0].onclick=(function(){
         gameSelecionado='eldenring'
