@@ -43,8 +43,11 @@ socket.on("error",async function(msg){
     firstItem.innerHTML="Carregando"
     $("#loading")[0].style.display="none"
     $("#jogos")[0].style.display="flex"
-    elementorProFrontend.modules.popup.showPopup( { id: 11155 } );
-    $(".elementor-heading-title")[4].innerHTML=msg.code
+    if (msg.code != ""){
+
+        elementorProFrontend.modules.popup.showPopup( { id: 11155 } );
+        $(".elementor-heading-title")[4].innerHTML=msg.code
+    }
     
 })
 
