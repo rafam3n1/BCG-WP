@@ -178,6 +178,12 @@ $(document).ready(function(){
     $("#warzone-botao")[0].onclick=(function(){
         gameSelecionado='cod'
     })
+
+    $("#warzonesteam-botao")[0].onclick=(function(){
+        gameSelecionado='cod-steam'
+    })
+
+    
 //ELDERRING
     $("#eldenring-botao")[0].onclick=(function(){
         gameSelecionado='eldenring'
