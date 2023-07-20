@@ -223,6 +223,23 @@ $(document).ready(function(){
     $("#rleague-steam-botao")[0].onclick=(function(){
         gameSelecionado='rleague-steam'
     })
+    //RDR2 EPIC
+    $("#reddead-epic-botao")[0].onclick=(function(){
+        gameSelecionado='reddead-epic'
+    })
+    //RDR2 EPIC
+    $("#reddead-steam-botao")[0].onclick=(function(){
+        gameSelecionado='reddead'
+    })
+
+    //RLEAGUE EPIC
+    $("#rleague-epic-botao")[0].onclick=(function(){
+        gameSelecionado='reddead-epic'
+    })
+    //RLEAGUE EPIC
+    $("#rleague-steam-botao")[0].onclick=(function(){
+        gameSelecionado='reddead'
+    })
 //HORIZON ZERO DAWN
     $("#horizonzerodawn-botao")[0].onclick=(function(){
         gameSelecionado='horizonzerodawn'
