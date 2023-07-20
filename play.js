@@ -228,7 +228,7 @@ $(document).ready(function(){
         gameSelecionado='reddead-epic'
     })
     //RDR2 EPIC
-    $("#reddead-steam-botao")[0].onclick=(function(){
+    $("#reddead-botao")[0].onclick=(function(){
         gameSelecionado='reddead'
     })
 
