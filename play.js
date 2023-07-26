@@ -1,5 +1,5 @@
 const socket = io.connect("https://play.grupobright.com:8080");
-
+let tokenSalvo
     
     
 socket.on("criado", async function (mesg) {
@@ -63,6 +63,7 @@ socket.on('connect', async function (msg) {
         console.log("Conectado ao Servidor")
         console.log("Servidor: "+tokenSelecionado)
         socket.emit('authenticate', tokenSelecionado);
+        tokenSalvo=tokenSelecionado
     })
 
     
