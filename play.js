@@ -11,7 +11,7 @@ socket.on("criado", async function (mesg) {
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${mesg.ip}*${tokenSalvo}`)
     })
-    
+
 })
 
 socket.on("RecCreated", async function (mesg) {
@@ -84,6 +84,10 @@ socket.on("created", async function (msg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
+
+    $("#entrarURI")[0].onclick=(function(){
+        open(`bright-app://${mesg.ip}*${tokenSalvo}`)
+    })
 })
 
 
