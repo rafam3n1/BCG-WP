@@ -7,6 +7,10 @@ socket.on("criado", async function (mesg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
+
+    $("#entrarURI")[0].onclick=(function(){
+        open(`bright-app://${mesg.ip}*${tokenSalvo}`)
+    })
 })
 
 socket.on("RecCreated", async function (mesg) {
@@ -14,6 +18,10 @@ socket.on("RecCreated", async function (mesg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
+
+    $("#entrarURI")[0].onclick=(function(){
+        open(`bright-app://${mesg.ip}*${tokenSalvo}`)
+    })
 })
 
 socket.on("reconnect",async function(msg){
@@ -255,6 +263,8 @@ $(document).ready(function(){
     $("#pair-button")[0].onclick=(function(){
         socket.emit("auth", $("#form-field-pin")[0].value)
     })
+
+    
 
 
     
