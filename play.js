@@ -11,6 +11,7 @@ socket.on("criado", async function (mesg) {
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${mesg.ip}*${tokenSalvo}`)
     })
+    
 })
 
 socket.on("RecCreated", async function (mesg) {
