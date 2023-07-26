@@ -86,7 +86,7 @@ socket.on("created", async function (msg) {
     $("#form-field-senha")[0].value = msg.password
 
     $("#entrarURI")[0].onclick=(function(){
-        open(`bright-app://${mesg.ip}*${tokenSalvo}`)
+        open(`bright-app://${msg.ip}*${tokenSalvo}`)
     })
 })
 
