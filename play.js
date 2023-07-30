@@ -60,6 +60,10 @@ socket.on("error",async function(msg){
     
 })
 
+socket.on("authed",async function(msg){
+    elementorProFrontend.modules.popup.showPopup( { id: 12648 } );
+})
+
 socket.on('connect', async function (msg) {
 
     socket.emit("getVms","")
