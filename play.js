@@ -8,8 +8,14 @@ socket.on("criado", async function (mesg) {
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
 
+    let ipURI
+
+    if(mesg.node){
+        ipURI=mesg.internalip
+    }
+
     $("#entrarURI")[0].onclick=(function(){
-        open(`bright-app://${mesg.ip}*${tokenSalvo}`)
+        open(`bright-app://${ipURI}*${tokenSalvo}`)
     })
 
 })
@@ -20,8 +26,12 @@ socket.on("RecCreated", async function (mesg) {
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
 
+    if(mesg.node){
+        ipURI=mesg.internalip
+    }
+
     $("#entrarURI")[0].onclick=(function(){
-        open(`bright-app://${mesg.ip}*${tokenSalvo}`)
+        open(`bright-app://${ipURI}*${tokenSalvo}`)
     })
 })
 
@@ -89,8 +99,12 @@ socket.on("created", async function (msg) {
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
 
+    if(mesg.node){
+        ipURI=mesg.internalip
+    }
+
     $("#entrarURI")[0].onclick=(function(){
-        open(`bright-app://${msg.ip}*${tokenSalvo}`)
+        open(`bright-app://${ipURI}*${tokenSalvo}`)
     })
 })
 
