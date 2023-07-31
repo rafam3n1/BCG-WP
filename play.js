@@ -213,6 +213,10 @@ $(document).ready(function(){
     $("#gtav-epic-botao")[0].onclick=(function(){
         gameSelecionado='gtav-epic'
     })
+//GTA ROCKSTAR
+    $("#gtav-rockstar-botao")[0].onclick=(function(){
+        gameSelecionado='gtav-rockstar'
+    })
 //HOGWARTS LEGACY
     $("#hlegacy-botao")[0].onclick=(function(){
         gameSelecionado='hlegacy'
