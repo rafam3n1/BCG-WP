@@ -12,6 +12,8 @@ socket.on("criado", async function (mesg) {
 
     if(mesg.node){
         ipURI=mesg.internalip
+    }else{
+        ipURI=mesg.ip
     }
 
     $("#entrarURI")[0].onclick=(function(){
@@ -28,7 +30,10 @@ socket.on("RecCreated", async function (mesg) {
 
     if(mesg.node){
         ipURI=mesg.internalip
+    }else{
+        ipURI=mesg.ip
     }
+
 
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${ipURI}*${tokenSalvo}`)
@@ -101,7 +106,10 @@ socket.on("created", async function (msg) {
 
     if(mesg.node){
         ipURI=mesg.internalip
+    }else{
+        ipURI=mesg.ip
     }
+
 
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${ipURI}*${tokenSalvo}`)
