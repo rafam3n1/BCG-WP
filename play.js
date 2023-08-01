@@ -104,10 +104,10 @@ socket.on("created", async function (msg) {
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
 
-    if(mesg.node){
-        ipURI=mesg.internalip
+    if(msg.node){
+        ipURI=msg.internalip
     }else{
-        ipURI=mesg.ip
+        ipURI=msg.ip
     }
 
 
