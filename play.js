@@ -195,6 +195,11 @@ $(document).ready(function(){
     })
 
 
+
+//DELETAR PRIORITY VM
+    $("#resetar-botao")[0].onclick=(function(){
+        socket.emit("deletarFisica","")
+    })
     
 //SETANDO JOGOS QUANDO CLICA NO BOTAO
 
