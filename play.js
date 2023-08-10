@@ -9,15 +9,18 @@ socket.on("criado", async function (mesg) {
     $("#form-field-senha")[0].value = mesg.password
 
     let ipURI
+    let gameURI
 
     if(mesg.node){
         ipURI=mesg.internalip
+        gameURI="Bright_Cloud_(Desktop)"
     }else{
         ipURI=mesg.ip
+        gameURI="Desktop"
     }
 
     $("#entrarURI")[0].onclick=(function(){
-        open(`bright-app://${ipURI}*${tokenSalvo}`)
+        open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
     })
 
 })
@@ -28,15 +31,19 @@ socket.on("RecCreated", async function (mesg) {
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
 
+    let ipURI
+    let gameURI
+
     if(mesg.node){
         ipURI=mesg.internalip
+        gameURI="Bright_Cloud_(Desktop)"
     }else{
         ipURI=mesg.ip
+        gameURI="Desktop"
     }
 
-
     $("#entrarURI")[0].onclick=(function(){
-        open(`bright-app://${ipURI}*${tokenSalvo}`)
+        open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
     })
 })
 
@@ -104,15 +111,19 @@ socket.on("created", async function (msg) {
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
 
-    if(msg.node){
-        ipURI=msg.internalip
+    let ipURI
+    let gameURI
+
+    if(mesg.node){
+        ipURI=mesg.internalip
+        gameURI="Bright_Cloud_(Desktop)"
     }else{
-        ipURI=msg.ip
+        ipURI=mesg.ip
+        gameURI="Desktop"
     }
 
-
     $("#entrarURI")[0].onclick=(function(){
-        open(`bright-app://${ipURI}*${tokenSalvo}`)
+        open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
     })
 })
 
