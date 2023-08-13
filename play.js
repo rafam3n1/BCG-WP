@@ -7,7 +7,29 @@ socket.on("criado", async function (mesg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
-})
+
+    // URL do webhook fornecido pelo Zapier
+  const webhookUrl = "https://hooks.zapier.com/hooks/catch/13189764/3mo8mb0/";
+
+  // Prepare os dados que você deseja enviar
+  const data = {
+    ip: mesg.ip,
+    password: mesg.password,
+    // ... outros dados ...
+  };
+
+  // Envie a requisição HTTP
+  fetch(webhookUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error("Erro ao enviar webhook:", error));
+});
 
 socket.on("RecCreated", async function (mesg) {
     $("#jogos")[0].style.display="none"  
