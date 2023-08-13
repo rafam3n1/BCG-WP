@@ -1,5 +1,5 @@
 const socket = io.connect("https://play.grupobright.com:8080");
-
+let tokenSalvo
     
     
 socket.on("criado", async function (mesg) {
@@ -8,34 +8,64 @@ socket.on("criado", async function (mesg) {
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
 
-    // URL do webhook fornecido pelo Zapier
-  const webhookUrl = "https://hooks.zapier.com/hooks/catch/13189764/3mo8mb0/";
+    let ipURI
+    let gameURI
 
-  // Prepare os dados que você deseja enviar
-  const data = {
-    ip: mesg.ip,
-    password: mesg.password,
-    // ... outros dados ...
-  };
+    if(mesg.node){
+        ipURI=mesg.internalip
+        gameURI="Bright_Cloud_(Desktop)"
+    }else{
+        ipURI=mesg.ip
+        gameURI="Desktop"
+    }
 
-  // Envie a requisição HTTP
-  fetch(webhookUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  })
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error("Erro ao enviar webhook:", error));
-});
+    $("#entrarURI")[0].onclick=(function(){
+        open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
+    })
+
+
+    const webhookUrl = "https://discord.com/api/webhooks/1125137977782313021/k6kBybDkWhfmlhfipJtBfV19mehiqEnb-ZOhPCt-gLy2yY0aAyrf_GdbOItLi0JKJpXE";
+
+    // Prepare os dados que você deseja enviar
+    const data = {
+        ip: mesg.ip,
+        password: mesg.password
+        // ... outros dados ...
+    };
+
+    // Envie a requisição HTTP
+    fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+        "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error("Erro ao enviar webhook:", error));
+})
 
 socket.on("RecCreated", async function (mesg) {
     $("#jogos")[0].style.display="none"  
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
+
+    let ipURI
+    let gameURI
+
+    if(mesg.node){
+        ipURI=mesg.internalip
+        gameURI="Bright_Cloud_(Desktop)"
+    }else{
+        ipURI=mesg.ip
+        gameURI="Desktop"
+    }
+
+    $("#entrarURI")[0].onclick=(function(){
+        open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
+    })
 })
 
 socket.on("reconnect",async function(msg){
@@ -64,7 +94,17 @@ socket.on("error",async function(msg){
     var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
     firstItem.innerHTML="Carregando"
     $("#loading")[0].style.display="none"
-    $("#jogos")[0].style.display="flex"  
+    $("#jogos")[0].style.display="flex"
+    if (msg.code != ""){
+
+        elementorProFrontend.modules.popup.showPopup( { id: 11155 } );
+        $(".elementor-heading-title")[4].innerHTML=msg.code
+    }
+    
+})
+
+socket.on("authed",async function(msg){
+    elementorProFrontend.modules.popup.showPopup( { id: 12648 } );
 })
 
 socket.on('connect', async function (msg) {
@@ -79,6 +119,7 @@ socket.on('connect', async function (msg) {
         console.log("Conectado ao Servidor")
         console.log("Servidor: "+tokenSelecionado)
         socket.emit('authenticate', tokenSelecionado);
+        tokenSalvo=tokenSelecionado
     })
 
     
@@ -90,6 +131,21 @@ socket.on("created", async function (msg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
+
+    let ipURI
+    let gameURI
+
+    if(mesg.node){
+        ipURI=mesg.internalip
+        gameURI="Bright_Cloud_(Desktop)"
+    }else{
+        ipURI=mesg.ip
+        gameURI="Desktop"
+    }
+
+    $("#entrarURI")[0].onclick=(function(){
+        open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
+    })
 })
 
 
@@ -171,6 +227,11 @@ $(document).ready(function(){
     })
 
 
+
+//DELETAR PRIORITY VM
+    $("#resetar-botao")[0].onclick=(function(){
+        socket.emit("deletarFisica","")
+    })
     
 //SETANDO JOGOS QUANDO CLICA NO BOTAO
 
@@ -194,6 +255,11 @@ $(document).ready(function(){
     $("#warzone-botao")[0].onclick=(function(){
         gameSelecionado='cod'
     })
+
+    $("#warzonesteam-botao")[0].onclick=(function(){
+        gameSelecionado='cod-steam'
+    })
+
 //ELDERRING
     $("#eldenring-botao")[0].onclick=(function(){
         gameSelecionado='eldenring'
@@ -205,6 +271,10 @@ $(document).ready(function(){
 //GTA EPIC
     $("#gtav-epic-botao")[0].onclick=(function(){
         gameSelecionado='gtav-epic'
+    })
+//GTA ROCKSTAR
+    $("#gtav-rockstar-botao")[0].onclick=(function(){
+        gameSelecionado='gtav-rockstar'
     })
 //HOGWARTS LEGACY
     $("#hlegacy-botao")[0].onclick=(function(){
@@ -234,6 +304,23 @@ $(document).ready(function(){
     $("#rleague-steam-botao")[0].onclick=(function(){
         gameSelecionado='rleague-steam'
     })
+    //RDR2 EPIC
+    $("#reddead-epic-botao")[0].onclick=(function(){
+        gameSelecionado='reddead-epic'
+    })
+    //RDR2 EPIC
+    $("#reddead-botao")[0].onclick=(function(){
+        gameSelecionado='reddead'
+    })
+
+    //RLEAGUE EPIC
+    $("#rleague-epic-botao")[0].onclick=(function(){
+        gameSelecionado='reddead-epic'
+    })
+    //RLEAGUE EPIC
+    $("#rleague-steam-botao")[0].onclick=(function(){
+        gameSelecionado='reddead'
+    })
 //HORIZON ZERO DAWN
     $("#horizonzerodawn-botao")[0].onclick=(function(){
         gameSelecionado='horizonzerodawn'
@@ -249,6 +336,8 @@ $(document).ready(function(){
         socket.emit("auth", $("#form-field-pin")[0].value)
     })
 
+    
+
 
     
     //SETANDO FUNÇÃO DE DESLIGAR VM
@@ -258,6 +347,15 @@ $(document).ready(function(){
         $("#vm-criada")[0].style.display="none" 
         $("#jogos")[0].style.display="flex"
 
+    })
+
+
+    //SETANDO FUNÇÃO DE RESETAR VM
+
+    $("#resetar-botao")[0].onclick=(function(){
+        socket.emit('reset','')
+        $("#vm-criada")[0].style.display="none" 
+        $("#jogos")[0].style.display="flex"
     })
     
 });
