@@ -135,11 +135,11 @@ socket.on("created", async function (msg) {
     let ipURI
     let gameURI
 
-    if(mesg.node){
-        ipURI=mesg.internalip
+    if(msg.node){
+        ipURI=msg.internalip
         gameURI="Bright_Cloud_(Desktop)"
     }else{
-        ipURI=mesg.ip
+        ipURI=msg.ip
         gameURI="Desktop"
     }
 
