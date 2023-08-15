@@ -21,6 +21,7 @@ socket.on("criado", async function (mesg) {
 
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
+        console.log(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
     })
 
 
@@ -65,6 +66,7 @@ socket.on("RecCreated", async function (mesg) {
 
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
+        console.log(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
     })
 })
 
@@ -145,6 +147,7 @@ socket.on("created", async function (msg) {
 
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
+        console.log(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
     })
 })
 
