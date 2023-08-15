@@ -13,10 +13,10 @@ socket.on("criado", async function (mesg) {
 
     if(mesg.node){
         ipURI=mesg.internalip
-        gameURI="Bright_Cloud_(Desktop)"
+        gameURI="Desktop"
     }else{
         ipURI=mesg.ip
-        gameURI="Desktop"
+        gameURI="Bright_Cloud_(Desktop)"
     }
 
     $("#entrarURI")[0].onclick=(function(){
@@ -57,10 +57,10 @@ socket.on("RecCreated", async function (mesg) {
 
     if(mesg.node){
         ipURI=mesg.internalip
-        gameURI="Bright_Cloud_(Desktop)"
+        gameURI="Desktop"
     }else{
         ipURI=mesg.ip
-        gameURI="Desktop"
+        gameURI="Bright_Cloud_(Desktop)"
     }
 
     $("#entrarURI")[0].onclick=(function(){
@@ -137,10 +137,10 @@ socket.on("created", async function (msg) {
 
     if(msg.node){
         ipURI=msg.internalip
-        gameURI="Bright_Cloud_(Desktop)"
+        gameURI="Desktop"
     }else{
         ipURI=msg.ip
-        gameURI="Desktop"
+        gameURI="Bright_Cloud_(Desktop)"
     }
 
     $("#entrarURI")[0].onclick=(function(){
