@@ -119,10 +119,10 @@ socket.on("created", async function (msg) {
     let gameURI
 
     if(mesg.node){
-        ipURI=mesg.internalip
+        ipURI=msg.internalip
         gameURI="1"
     }else{
-        ipURI=mesg.ip
+        ipURI=msg.ip
         gameURI="2"
     }
 
