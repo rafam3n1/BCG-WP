@@ -314,6 +314,13 @@ $(document).ready(function(){
         gameSelecionado='overwatch'
     })
 
+    //BALDURS
+    $("#baldurs-botao")[0].onclick=(function(){
+        gameSelecionado='baldurs-gate3'
+    })
+
+    
+
     //SETANDO PIN MOON
 
     $("#pair-button")[0].onclick=(function(){
