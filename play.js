@@ -118,7 +118,7 @@ socket.on("created", async function (msg) {
     let ipURI
     let gameURI
 
-    if(mesg.node){
+    if(msg.node){
         ipURI=msg.internalip
         gameURI="1"
     }else{
