@@ -109,7 +109,7 @@ socket.on('connect', async function (msg) {
 
     await fetch('https://grupobright.com/customcheck.php')
     .then(async function(response) {
-        tokenSalvo=await response.text();
+        tokenCustom=await response.text();
         console.log("Conectado ao Servidor")
        
     })
