@@ -1,5 +1,6 @@
 const socket = io.connect("https://play.grupobright.com:8080");
 let tokenSalvo
+let tokenCustom
     
     
 socket.on("criado", async function (mesg) {
@@ -103,6 +104,14 @@ socket.on('connect', async function (msg) {
         console.log("Servidor: "+tokenSelecionado)
         socket.emit('authenticate', tokenSelecionado);
         tokenSalvo=tokenSelecionado
+    })
+
+
+    await fetch('https://grupobright.com/customcheck.php')
+    .then(async function(response) {
+        tokenSalvo=await response.text();
+        console.log("Conectado ao Servidor")
+       
     })
 
     
