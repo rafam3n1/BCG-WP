@@ -111,6 +111,7 @@ socket.on('connect', async function (msg) {
     .then(async function(response) {
         tokenCustom=await response.text();
         console.log("Conectado ao Servidor")
+        socket.emit("authenticateCustom", tokenCustom)
        
     })
 
