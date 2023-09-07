@@ -324,9 +324,14 @@ $(document).ready(function(){
         gameSelecionado='overwatch'
     })
 
-    //BALDURS
+//BALDURS
     $("#baldurs-botao")[0].onclick=(function(){
         gameSelecionado='baldurs-gate3'
+    })
+
+//STARFIELD
+    $("#starfield-botao")[0].onclick=(function(){
+        gameSelecionado='starfield'
     })
 
     
