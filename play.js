@@ -334,7 +334,10 @@ $(document).ready(function(){
         gameSelecionado='starfield'
     })
 
-    
+//STARFIELD-XBOX
+    $("#starfield-xbox-botao")[0].onclick=(function(){
+        gameSelecionado='starfield-xbox'
+    })
 
     //SETANDO PIN MOON
 
