@@ -82,7 +82,7 @@ socket.on("error",async function(msg){
     if (msg.code != ""){
 
         elementorProFrontend.modules.popup.showPopup( { id: 11155 } );
-        $(".elementor-heading-title")[4].innerHTML=msg.code
+        $(".elementor-heading-title")[3].innerHTML=msg.code
     }
     
 })
