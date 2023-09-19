@@ -205,7 +205,7 @@ socket.on("fila", async function (msg) {
 ///REDEFININDO ONCLICK BOTÕES
 
 
-$(document).ready(function(){
+$(document).ready(async function(){
     console.log("Pagina carregada")
     
 
@@ -368,7 +368,7 @@ $(document).ready(function(){
 
 
 
-
+    await new Promise(res => setTimeout(res, 6000));
 
     ///////////////////////////////////////////////////
 //                    CUSTOM                     //
