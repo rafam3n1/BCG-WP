@@ -346,7 +346,31 @@ $(document).ready(function(){
     })
 
     
-///////////////////////////////////////////////////
+
+    
+    //SETANDO FUNÇÃO DE DESLIGAR VM
+
+    $("#desligarvm-botao")[0].onclick=(function(){
+        socket.emit('interromper',{'feedback':'Feedback setado automaticamente (site novo)','stars':'star-5'})
+        $("#vm-criada")[0].style.display="none" 
+        $("#jogos")[0].style.display="flex"
+
+    })
+
+
+    //SETANDO FUNÇÃO DE RESETAR VM
+
+    $("#resetar-botao")[0].onclick=(function(){
+        socket.emit('reset','')
+        $("#vm-criada")[0].style.display="none" 
+        $("#jogos")[0].style.display="flex"
+    })
+
+
+
+
+
+    ///////////////////////////////////////////////////
 //                    CUSTOM                     //
 ///////////////////////////////////////////////////
 
@@ -459,23 +483,5 @@ $("#starfield-xbox-botao-custom")[0].onclick = (function () {
     gameSelecionado = 'starfield-xbox'
 })
 
-    
-    //SETANDO FUNÇÃO DE DESLIGAR VM
-
-    $("#desligarvm-botao")[0].onclick=(function(){
-        socket.emit('interromper',{'feedback':'Feedback setado automaticamente (site novo)','stars':'star-5'})
-        $("#vm-criada")[0].style.display="none" 
-        $("#jogos")[0].style.display="flex"
-
-    })
-
-
-    //SETANDO FUNÇÃO DE RESETAR VM
-
-    $("#resetar-botao")[0].onclick=(function(){
-        socket.emit('reset','')
-        $("#vm-criada")[0].style.display="none" 
-        $("#jogos")[0].style.display="flex"
-    })
     
 });
