@@ -346,7 +346,118 @@ $(document).ready(function(){
     })
 
     
+///////////////////////////////////////////////////
+//                    CUSTOM                     //
+///////////////////////////////////////////////////
 
+// LAUNCHERS CUSTOM
+$("#launcher-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'bcg'
+})
+// FIFA23 CUSTOM
+$("#fifa23-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'fifa23'
+})
+// CS-GO CUSTOM
+$("#csgo-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'cs-go'
+})
+// BLACK DESERT CUSTOM
+$("#bdo-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'blackdesert'
+})
+// COD WARZONE CUSTOM
+$("#warzone-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'cod'
+})
+
+$("#warzonesteam-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'cod-steam'
+})
+
+// ELDERRING CUSTOM
+$("#eldenring-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'eldenring'
+})
+// GTA STEAM CUSTOM
+$("#gtav-steam-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'gtav-steam'
+})
+// GTA EPIC CUSTOM
+$("#gtav-epic-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'gtav-epic'
+})
+// GTA ROCKSTAR CUSTOM
+$("#gtav-rockstar-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'gtav-rockstar'
+})
+// HOGWARTS LEGACY CUSTOM
+$("#hlegacy-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'hlegacy'
+})
+// GOW 1 CUSTOM
+$("#god-of-war-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'god-of-war'
+})
+// FIFA22 CUSTOM
+$("#fifa22-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'fifa22'
+})
+// LOSTARK CUSTOM
+$("#lostark-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'lostark'
+})
+// RED DEAD CUSTOM
+$("#reddead-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'reddead'
+})
+// ROCKET LEAGUE EPIC CUSTOM
+$("#rleague-epic-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'rleague-epic'
+})
+// ROCKET LEAGUE STEAM CUSTOM
+$("#rleague-steam-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'rleague-steam'
+})
+// RDR2 EPIC CUSTOM
+$("#reddead-epic-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'reddead-epic'
+})
+// RDR2 EPIC CUSTOM
+$("#reddead-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'reddead'
+})
+// RLEAGUE EPIC CUSTOM
+$("#rleague-epic-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'reddead-epic'
+})
+// RLEAGUE EPIC CUSTOM
+$("#rleague-steam-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'reddead'
+})
+// HORIZON ZERO DAWN CUSTOM
+$("#horizonzerodawn-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'horizonzerodawn'
+})
+// OVERWATCH CUSTOM
+$("#overwatch-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'overwatch'
+})
+
+// BALDURS CUSTOM
+$("#baldurs-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'baldurs-gate3'
+})
+
+// STARFIELD CUSTOM
+$("#starfield-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'starfield'
+})
+
+// STARFIELD-XBOX CUSTOM
+$("#starfield-xbox-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'starfield-xbox'
+})
 
     
     //SETANDO FUNÇÃO DE DESLIGAR VM
