@@ -339,6 +339,12 @@ $(document).ready(function(){
         gameSelecionado='starfield-xbox'
     })
 
+    //SEA OF THIEVES
+    $("#seaofthieves-botao")[0].onclick = (function () {
+        gameSelecionado = 'seaofthieves'
+    })
+    
+
     //SETANDO PIN MOON
 
     $("#pair-button")[0].onclick=(function(){
@@ -483,5 +489,10 @@ $("#starfield-xbox-botao-custom")[0].onclick = (function () {
     gameSelecionado = 'starfield-xbox'
 })
 
-    
+
+//SEA OF THIEVES CUSTOM
+$("#seaofthieves-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'seaofthieves'
+})
+
 });
