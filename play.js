@@ -97,7 +97,7 @@ socket.on('connect', async function (msg) {
 
 
     let tokenSelecionado
-    await fetch('https://grupobright.com/checkuser.php')
+    await fetch('https://grupobright.com/check.php')
     .then(async function(response) {
         tokenSelecionado=await response.text();
         console.log("Conectado ao Servidor")
@@ -107,13 +107,14 @@ socket.on('connect', async function (msg) {
     })
 
 
+    /*
     await fetch('https://grupobright.com/customcheck.php')
     .then(async function(response) {
         tokenCustom=await response.text();
         console.log("Conectado ao Servidor")
         socket.emit("authenticateCustom", tokenCustom)
        
-    })
+    })*/
 
     
 });
