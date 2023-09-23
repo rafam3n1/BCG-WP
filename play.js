@@ -105,6 +105,7 @@ socket.on('connect', async function (msg) {
         socket.emit('authenticate', tokenSelecionado);
         tokenSalvo=tokenSelecionado
     })
+    
 
 
     /*
