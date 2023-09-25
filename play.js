@@ -274,7 +274,7 @@ $(document).ready(function(){
     })
 //HOGWARTS LEGACY
     $("#hlegacy-botao")[0].onclick=(function(){
-        gameSelecionado='hlegacy'
+        gameSelecionado='hoglegacy'
     })
 //GOW 1
     $("#god-of-war-botao")[0].onclick=(function(){
