@@ -20,6 +20,11 @@ socket.on("criado", async function (mesg) {
         gameURI="2"
     }
 
+
+    $("#stream-botao")[0].onclick=(function(){
+        window.location.href = mesg.streamUrl
+    })
+
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
         console.log(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
@@ -137,6 +142,10 @@ socket.on("created", async function (msg) {
         ipURI=msg.ip
         gameURI="2"
     }
+
+    $("#stream-botao")[0].onclick=(function(){
+        window.location.href = msg.streamUrl
+    })
 
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
@@ -366,6 +375,12 @@ $(document).ready(function(){
     })
 
 
+    //SETANDO FUNÇÃO DE STREAM VM
+
+    
+
+
+    
     //SETANDO FUNÇÃO DE RESETAR VM
 
     $("#resetar-botao")[0].onclick=(function(){
@@ -373,6 +388,7 @@ $(document).ready(function(){
         $("#vm-criada")[0].style.display="none" 
         $("#jogos")[0].style.display="flex"
     })
+
 
 
 
