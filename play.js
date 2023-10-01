@@ -22,7 +22,7 @@ socket.on("criado", async function (mesg) {
 
 
     $("#stream-botao")[0].onclick=(function(){
-        window.location.href = mesg.streamUrl
+        window.location.href = (mesg.streamUrl+`&vm_password=${btoa(mesg.password)}`)
     })
 
     $("#entrarURI")[0].onclick=(function(){
@@ -144,7 +144,7 @@ socket.on("created", async function (msg) {
     }
 
     $("#stream-botao")[0].onclick=(function(){
-        window.location.href = msg.streamUrl
+        window.location.href = (msg.streamUrl+`&vm_password=${btoa(msg.password)}`)
     })
 
     $("#entrarURI")[0].onclick=(function(){
