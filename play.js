@@ -350,6 +350,15 @@ $(document).ready(function(){
         gameSelecionado='starfield-xbox'
     })
 
+    //forzahorizon5-botao
+    $("#forzahorizon5-botao")[0].onclick=(function(){
+        gameSelecionado='forza-horizon'
+    })
+
+
+
+
+
     //SEA OF THIEVES
     $("#seaofthieves-botao")[0].onclick = (function () {
         gameSelecionado = 'seaofthieves'
@@ -511,6 +520,12 @@ $("#starfield-xbox-botao-custom")[0].onclick = (function () {
 //SEA OF THIEVES CUSTOM
 $("#seaofthieves-botao-custom")[0].onclick = (function () {
     gameSelecionado = 'seaofthieves'
+})
+
+
+//forzahorizon5-botao
+$("#forzahorizon5-botao-custom")[0].onclick=(function(){
+    gameSelecionado='forza-horizon'
 })
 
 });
