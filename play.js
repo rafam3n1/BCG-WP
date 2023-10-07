@@ -472,18 +472,12 @@ $("#rleague-steam-botao-custom")[0].onclick = (function () {
 $("#reddead-epic-botao-custom")[0].onclick = (function () {
     gameSelecionado = 'reddead-epic'
 })
-// RDR2 EPIC CUSTOM
+
+// RDR2 STEAM CUSTOM
 $("#reddead-botao-custom")[0].onclick = (function () {
     gameSelecionado = 'reddead'
 })
-// RLEAGUE EPIC CUSTOM
-$("#rleague-epic-botao-custom")[0].onclick = (function () {
-    gameSelecionado = 'reddead-epic'
-})
-// RLEAGUE EPIC CUSTOM
-$("#rleague-steam-botao-custom")[0].onclick = (function () {
-    gameSelecionado = 'reddead'
-})
+
 // HORIZON ZERO DAWN CUSTOM
 $("#horizonzerodawn-botao-custom")[0].onclick = (function () {
     gameSelecionado = 'horizonzerodawn'
