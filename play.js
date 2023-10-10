@@ -355,6 +355,18 @@ $(document).ready(function(){
     $("#seaofthieves-botao")[0].onclick = (function () {
         gameSelecionado = 'seaofthieves'
     })
+
+
+      //WOW
+      $("#wow-botao")[0].onclick = (function () {
+        gameSelecionado = 'wow'
+    })
+    
+      //CYBERPUNK
+      $("#cyberpunk-botao")[0].onclick = (function () {
+        gameSelecionado = 'cyberpunk'
+    })
+    
     
 
     //SETANDO PIN MOON
@@ -512,6 +524,16 @@ $("#seaofthieves-botao-custom")[0].onclick = (function () {
 //forzahorizon5-botao
 $("#forzahorizon5-botao-custom")[0].onclick=(function(){
     gameSelecionado='forza-horizon'
+})
+
+//WOW CUSTOM
+$("#wow-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'wow'
+})
+
+  //CYBERPUNK CUSTOM
+  $("#cyberpunk-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'cyberpunk'
 })
 
 });
