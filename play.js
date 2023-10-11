@@ -51,6 +51,11 @@ socket.on("RecCreated", async function (mesg) {
         gameURI="2"
     }
 
+
+    $("#stream-botao")[0].onclick=(function(){
+        window.location.href = (mesg.streamUrl+`&vm_password=${btoa(mesg.password)}`)
+    })
+
     $("#entrarURI")[0].onclick=(function(){
         open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
         console.log(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`)
