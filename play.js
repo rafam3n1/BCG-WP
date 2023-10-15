@@ -179,7 +179,9 @@ socket.on("avaliable", function(msg){
     var listItems = disponiveis.querySelectorAll("li");
     listItems[0].querySelector(".elementor-icon-list-text").textContent=msg.google //GOOGLE
     listItems[1].querySelector(".elementor-icon-list-text").textContent=msg.azure // AZURE
-    listItems[2].querySelector(".elementor-icon-list-text").textContent=msg.priority // AZURE
+    listItems[2].querySelector(".elementor-icon-list-text").textContent=msg.priority // priority
+    listItems[3].querySelector(".elementor-icon-list-text").textContent=msg.rtx // RTX
+    listItems[4].querySelector(".elementor-icon-list-text").textContent=msg.gtx // GTX
     console.log(`Google: ${msg.google} - Azure: ${msg.azure}`)
 })
 
