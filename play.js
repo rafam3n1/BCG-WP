@@ -364,6 +364,13 @@ $(document).ready(function(){
     })
 
 
+    //SEA OF THIEVES STEAM
+    $("#seaofthieves-steam-botao")[0].onclick = (function () {
+        gameSelecionado = 'seaofthieves'
+    })
+    
+
+
       //WOW
       $("#wow-botao")[0].onclick = (function () {
         gameSelecionado = 'wow'
@@ -526,6 +533,12 @@ $("#starfield-xbox-botao-custom")[0].onclick = (function () {
 $("#seaofthieves-botao-custom")[0].onclick = (function () {
     gameSelecionado = 'seaofthieves'
 })
+
+//SEA OF THIEVES STEAM custom
+$("#seaofthieves-steam-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'seaofthieves'
+})
+
 
 
 //forzahorizon5-botao
