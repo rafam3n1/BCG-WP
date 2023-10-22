@@ -380,6 +380,12 @@ $(document).ready(function(){
       $("#cyberpunk-botao")[0].onclick = (function () {
         gameSelecionado = 'cyberpunk'
     })
+
+    //MORTALKOMBAT-
+    $("#mortalkombat1-botao")[0].onclick = (function () {
+        gameSelecionado = 'morta-kombat1'
+    })
+
     
     
 
@@ -554,6 +560,12 @@ $("#wow-botao-custom")[0].onclick = (function () {
   //CYBERPUNK CUSTOM
   $("#cyberpunk-botao-custom")[0].onclick = (function () {
     gameSelecionado = 'cyberpunk'
+})
+
+
+//MORTALKOMBAT CUSTOM
+$("#mortalkombat1-botao-custom")[0].onclick = (function () {
+    gameSelecionado = 'morta-kombat1'
 })
 
 });
