@@ -366,7 +366,7 @@ $(document).ready(function(){
 
     //SEA OF THIEVES STEAM
     $("#seaofthieves-steam-botao")[0].onclick = (function () {
-        gameSelecionado = 'seaofthieves'
+        gameSelecionado = 'sea-steam'
     })
     
 
@@ -536,7 +536,7 @@ $("#seaofthieves-botao-custom")[0].onclick = (function () {
 
 //SEA OF THIEVES STEAM custom
 $("#seaofthieves-steam-botao-custom")[0].onclick = (function () {
-    gameSelecionado = 'seaofthieves'
+    gameSelecionado = 'sea-steam'
 })
 
 
