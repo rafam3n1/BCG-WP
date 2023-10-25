@@ -425,7 +425,7 @@ $(document).ready(function(){
 
    
 
-    socket.on("resetado", async function (msg) {
+    socket.on("restado", async function (msg) {
         $("#loading")[0].style.display="none"
         $("#jogos")[0].style.display="flex"
     })
