@@ -418,12 +418,17 @@ $(document).ready(function(){
 
     $("#resetar-botao")[0].onclick=(function(){
         socket.emit('reset','')
-        $("#vm-criada")[0].style.display="none" 
-        $("#jogos")[0].style.display="flex"
+        $("#loading")[0].style.display="flex"
+        $("#vm-criada")[0].style.display="none"
     })
 
 
+   
 
+    socket.on("resetado", async function (msg) {
+        $("#loading")[0].style.display="none"
+        $("#jogos")[0].style.display="flex"
+    })
 
 
 
