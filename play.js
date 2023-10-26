@@ -423,7 +423,17 @@ $(document).ready(function(){
     })
 
 
-   
+    
+    
+    $("#resetarstream-botao")[0].onclick=(function(){
+        socket.emit('resetStreamURL','')
+    })
+
+   socket.on("newStreamURL",async function(msg){
+        $("#stream-botao")[0].onclick=(function(){
+            window.location.href = (msg.streamUrl+`&vm_password=${btoa(btoa(msg.password))}`)
+        })
+   })
 
     socket.on("restado", async function (msg) {
         $("#loading")[0].style.display="none"
