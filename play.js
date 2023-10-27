@@ -65,7 +65,7 @@ socket.on("RecCreated", async function (mesg) {
 socket.on("reconnect",async function(msg){
     var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
     var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
-    
+        
 
     if(msg!="NADA"){
         $("#loading")[0].style.display="flex"
@@ -427,9 +427,19 @@ $(document).ready(function(){
     
     $("#resetarstream-botao")[0].onclick=(function(){
         socket.emit('resetStreamURL','')
+        $("#loading")[0].style.display="flex"
+        $("#vm-criada")[0].style.display="none"
+        var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+        var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
+        firstItem.innerHTML="Resetando stream"    
+
+
     })
 
    socket.on("newStreamURL",async function(msg){
+
+        $("#loading")[0].style.display="none"
+        $("#vm-criada")[0].style.display="flex"
         $("#stream-botao")[0].onclick=(function(){
             window.location.href = (msg.streamUrl+`&vm_password=${btoa(btoa(msg.password))}`)
         })
