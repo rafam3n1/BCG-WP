@@ -416,14 +416,21 @@ $(document).ready(function(){
     
     //SETANDO FUNÇÃO DE RESETAR VM
 
-    $("#resetar-botao")[0].onclick=(function(){
-        socket.emit('reset','')
-        $("#loading")[0].style.display="flex"
-        $("#vm-criada")[0].style.display="none"
+    
+
+
+    $("#popupreset-botao")[0].onclick=(function(){
+        elementorProFrontend.modules.popup.showPopup( { id: 24260 } );
+
+        $("#resetar-botao")[0].onclick=(function(){
+            socket.emit('reset','')
+            $("#loading")[0].style.display="flex"
+            $("#vm-criada")[0].style.display="none"
+        })
+
+        
     })
 
-
-    
     
     $("#resetarstream-botao")[0].onclick=(function(){
         
