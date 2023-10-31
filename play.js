@@ -15,6 +15,7 @@ socket.on("criado", async function (mesg) {
     if(mesg.node){
         ipURI=mesg.internalip
         gameURI="1"
+        $("#form-field-ipmoonlight")[0].value=ipURI
     }else{
         ipURI=mesg.ip
         gameURI="2"
@@ -46,6 +47,7 @@ socket.on("RecCreated", async function (mesg) {
     if(mesg.node){
         ipURI=mesg.internalip
         gameURI="1"
+        $("#form-field-ipmoonlight")[0].value=ipURI
     }else{
         ipURI=mesg.ip
         gameURI="2"
@@ -143,6 +145,7 @@ socket.on("created", async function (msg) {
     if(msg.node){
         ipURI=msg.internalip
         gameURI="1"
+        $("#form-field-ipmoonlight")[0].value=ipURI
     }else{
         ipURI=msg.ip
         gameURI="2"
