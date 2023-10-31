@@ -241,9 +241,9 @@ $(document).ready(function(){
 
 
 //DELETAR PRIORITY VM
-    $("#resetar-botao")[0].onclick=(function(){
-        socket.emit("deletarFisica","")
-    })
+    //$("#resetar-botao")[0].onclick=(function(){
+      //  socket.emit("deletarFisica","")
+    //})
     
 //SETANDO JOGOS QUANDO CLICA NO BOTAO
 
@@ -427,8 +427,6 @@ $(document).ready(function(){
             $("#loading")[0].style.display="flex"
             $("#vm-criada")[0].style.display="none"
         })
-
-        
     })
 
     
