@@ -8,7 +8,6 @@ socket.on("criado", async function (mesg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
-    $("#form-field-ipmoonlight")[0].value=mesg.internalip
 
     let ipURI
     let gameURI
@@ -21,6 +20,7 @@ socket.on("criado", async function (mesg) {
         gameURI="2"
     }
 
+    $("#form-field-ipmoonlight")[0].value=ipURI
 
     $("#stream-botao")[0].onclick=(function(){
         window.location.href = (mesg.streamUrl+`&vm_password=${btoa(btoa(mesg.password))}`)
@@ -40,8 +40,7 @@ socket.on("RecCreated", async function (mesg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
-    $("#form-field-ipmoonlight")[0].value=mesg.internalip
-    
+
     let ipURI
     let gameURI
 
@@ -52,6 +51,8 @@ socket.on("RecCreated", async function (mesg) {
         ipURI=mesg.ip
         gameURI="2"
     }
+
+    $("#form-field-ipmoonlight")[0].value=ipURI
 
 
     $("#stream-botao")[0].onclick=(function(){
@@ -138,7 +139,7 @@ socket.on("created", async function (msg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
-    $("#form-field-ipmoonlight")[0].value=msg.internalip
+    
 
     let ipURI
     let gameURI
@@ -151,6 +152,9 @@ socket.on("created", async function (msg) {
         ipURI=msg.ip
         gameURI="2"
     }
+
+    $("#form-field-ipmoonlight")[0].value=ipURI
+
 
     $("#stream-botao")[0].onclick=(function(){
         window.location.href = (msg.streamUrl+`&vm_password=${btoa(btoa(msg.password))}`)
