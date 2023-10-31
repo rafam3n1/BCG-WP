@@ -8,6 +8,7 @@ socket.on("criado", async function (mesg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
+    $("#form-field-ipmoonlight")[0].value=mesg.internalip
 
     let ipURI
     let gameURI
@@ -15,7 +16,6 @@ socket.on("criado", async function (mesg) {
     if(mesg.node){
         ipURI=mesg.internalip
         gameURI="1"
-        $("#form-field-ipmoonlight")[0].value=mesg.internalip
     }else{
         ipURI=mesg.ip
         gameURI="2"
@@ -40,14 +40,14 @@ socket.on("RecCreated", async function (mesg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = mesg.ip
     $("#form-field-senha")[0].value = mesg.password
-
+    $("#form-field-ipmoonlight")[0].value=mesg.internalip
+    
     let ipURI
     let gameURI
 
     if(mesg.node){
         ipURI=mesg.internalip
         gameURI="1"
-        $("#form-field-ipmoonlight")[0].value=mesg.internalip
     }else{
         ipURI=mesg.ip
         gameURI="2"
@@ -138,6 +138,7 @@ socket.on("created", async function (msg) {
     $("#vm-criada")[0].style.display="flex"  
     $("#form-field-ip")[0].value = msg.ip
     $("#form-field-senha")[0].value = msg.password
+    $("#form-field-ipmoonlight")[0].value=msg.internalip
 
     let ipURI
     let gameURI
@@ -145,7 +146,7 @@ socket.on("created", async function (msg) {
     if(msg.node){
         ipURI=msg.internalip
         gameURI="1"
-        $("#form-field-ipmoonlight")[0].value=msg.internalip
+        
     }else{
         ipURI=msg.ip
         gameURI="2"
