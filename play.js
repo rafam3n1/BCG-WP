@@ -20,7 +20,13 @@ socket.on("criado", async function (mesg) {
         gameURI="2"
     }
 
-    $("#form-field-ipmoonlight")[0].value=ipURI
+    if (mesg.internalip){
+        $("#form-field-ipmoonlight")[0].value=mesg.internalip
+    }
+    else{
+        $("#form-field-ipmoonlight")[0].value=mesg.ip
+    }
+
 
     $("#stream-botao")[0].onclick=(function(){
         window.location.href = (mesg.streamUrl+`&vm_password=${btoa(btoa(mesg.password))}`)
@@ -52,7 +58,13 @@ socket.on("RecCreated", async function (mesg) {
         gameURI="2"
     }
 
-    $("#form-field-ipmoonlight")[0].value=ipURI
+
+    if (mesg.internalip){
+        $("#form-field-ipmoonlight")[0].value=mesg.internalip
+    }
+    else{
+        $("#form-field-ipmoonlight")[0].value=mesg.ip
+    }
 
 
     $("#stream-botao")[0].onclick=(function(){
@@ -153,7 +165,12 @@ socket.on("created", async function (msg) {
         gameURI="2"
     }
 
-    $("#form-field-ipmoonlight")[0].value=ipURI
+    if (msg.internalip){
+        $("#form-field-ipmoonlight")[0].value=msg.internalip
+    }
+    else{
+        $("#form-field-ipmoonlight")[0].value=msg.ip
+    }
 
 
     $("#stream-botao")[0].onclick=(function(){
