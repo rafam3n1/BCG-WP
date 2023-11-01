@@ -247,9 +247,9 @@ socket.on("fila", async function (msg) {
 
 socket.on("vmCheckStatus", function (msg) {
     const statuses={
-        "RUNNING":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#33cc33"><text>LIGADA</text></font>`,
-        "TERMINATED":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ffcc00"><text>PARADA</text></font>`,
-        "DELETED":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ff3300"><text>DELETADA</text></font>`
+        "RUNNING":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#33cc33"><text>Ligada</text></font>`,
+        "TERMINATED":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ffcc00"><text>Desligada</text></font>`,
+        "DELETED":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ff3300"><text>Deletada</text></font>`
     }
 
     $("#statusmaquina")[0].children[0].innerHTML=statuses[msg]
