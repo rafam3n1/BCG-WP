@@ -245,6 +245,17 @@ socket.on("fila", async function (msg) {
 })
 
 
+socket.on("vmCheckStatus", function (msg) {
+    const statuses={
+        "RUNNING":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#33cc33"><text>RODANDO</text></font>`,
+        "TERMINATED":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ffcc00"><text>PARADA</text></font>`,
+        "DELETED":`<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ff3300"><text>DELETADO</text></font>`
+    }
+
+    $("#statusmaquina")[0].children[0].innerHTML=statuses[msg]
+
+})
+
 ///REDEFININDO ONCLICK BOTÕES
 
 
