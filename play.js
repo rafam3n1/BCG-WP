@@ -122,14 +122,21 @@ socket.on('connect', async function (msg) {
 
 
     let tokenSelecionado
-    await fetch('https://grupobright.com/check.php')
-    .then(async function(response) {
-        tokenSelecionado=await response.text();
-        console.log("Conectado ao Servidor")
-        console.log("Servidor: "+tokenSelecionado)
-        socket.emit('authenticate', tokenSelecionado);
-        tokenSalvo=tokenSelecionado
-    })
+    while (true){
+        await fetch('https://grupobright.com/check.php')
+        .then(async function(response) {
+            tokenSelecionado=await response.text();
+            console.log("Conectado ao Servidor")
+            console.log("Servidor: "+tokenSelecionado)
+            socket.emit('authenticate', tokenSelecionado);
+            tokenSalvo=tokenSelecionado
+        })
+
+
+        await new Promise(res => setTimeout(res, 2*60*1000));
+    }
+
+    
     
 
 
@@ -235,6 +242,7 @@ socket.on("fisica2", async function(msg){
 
     socket.emit("vmCommand", { "evento": "CreateVM"})
 })
+
 
 socket.on("fila", async function (msg) {
     var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
