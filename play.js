@@ -134,6 +134,8 @@ socket.on('connect', async function (msg) {
 
 
         await new Promise(res => setTimeout(res, 2*60*1000));
+
+        socket.disconnect()
     }
 
     
