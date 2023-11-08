@@ -133,7 +133,7 @@ socket.on('connect', async function (msg) {
         })
 
 
-        await new Promise(res => setTimeout(res, 4*60*1000));
+        await new Promise(res => setTimeout(res, 4*60*60*1000));
 
         socket.disconnect()
         await new Promise(res => setTimeout(res,3000));
