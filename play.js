@@ -239,6 +239,26 @@ socket.on("assinatura",async function(msg){
     }
 })
 
+
+socket.on("changeRegion",async function(msg){
+    //abrir poupp
+    elementorProFrontend.modules.popup.showPopup( { id: 37412 } );
+
+
+    //botão sim
+    $('div[data-id="57b3113"]')[0].onclick=function(){
+        socket.emit("region","yes")
+        socket.emit("choose","google")
+        socket.emit("vmCommand", { "evento": "List"})
+    }
+
+    $('div[data-id="3bf90d2"]')[0].onclick=function(){
+        socket.emit("region","no")
+        socket.emit("choose","google")
+        socket.emit("vmCommand", { "evento": "List"})
+    }
+})
+
 socket.on("fisica2", async function(msg){
     var parentElement = document.getElementById('status_text'); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
     var firstItem = parentElement.querySelector('.ekit-fancy-prefix-text');
