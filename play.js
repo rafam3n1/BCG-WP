@@ -510,6 +510,11 @@ $(document).ready(function(){
 
     })
 
+
+    $("#interromper-botao")[0].onclick=(function(){
+        socket.emit('sair','sairFila')
+    })
+
    socket.on("newStreamURL",async function(msg){
 
         $("#loading")[0].style.display="none"
