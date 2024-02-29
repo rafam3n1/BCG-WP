@@ -252,7 +252,7 @@ socket.on("changeRegion",async function(msg){
         socket.emit("vmCommand", { "evento": "List"})
     }
 
-    $('div[data-id="3bf90d2"]')[0].onclick=function(){
+    $('div[data-id="ef7fe9a"]')[0].onclick=function(){
         socket.emit("region","no")
         socket.emit("choose","google")
         socket.emit("vmCommand", { "evento": "List"})
