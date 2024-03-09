@@ -252,6 +252,12 @@ socket.on("changeRegion",async function(msg){
         socket.emit("vmCommand", { "evento": "List"})
     }
 
+    $('#southamerica-east1-c')[0].onclick=function(){
+        socket.emit("region","yes1")
+        socket.emit("choose","google")
+        socket.emit("vmCommand", { "evento": "List"})
+    }
+
     $('div[data-id="ef7fe9a"]')[0].onclick=function(){
         socket.emit("region","no")
         socket.emit("choose","google")
