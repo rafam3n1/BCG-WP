@@ -11,7 +11,7 @@ module.exports = () => {
   return {
     target: 'browserslist',
     entry: {
-      index: getDirectory('src/js/index.js')
+      index: getDirectory('src/index.js')
     },
     output: {
       path: getDirectory('dist'),
@@ -86,36 +86,6 @@ module.exports = () => {
           removeScriptTypeAttributes: true,
           removeStyleLinkTypeAttributes: true,
           useShortDoctype: true
-        }
-      }),
-      new fileManager({
-        events: {
-          onEnd: [
-            {
-              copy: [
-                {
-                  source: getDirectory('src/assets/favicon/**'),
-                  destination: 'dist/favicon'
-                }
-              ]
-            },
-            {
-              copy: [
-                {
-                  source: getDirectory('src/assets/app.webmanifest'),
-                  destination: 'dist/'
-                }
-              ]
-            },
-            {
-              copy: [
-                {
-                  source: getDirectory('src/assets/sitemap.xml'),
-                  destination: 'dist/'
-                }
-              ]
-            }
-          ]
         }
       })
     ],
