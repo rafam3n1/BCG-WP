@@ -2,13 +2,24 @@ import {ConfigureDaemon, GetLog, GetLoggingMoonlight, GetServerLog, StartMoonlig
 
 
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('hello from thinkmay')
   const moonlightBtn = document.getElementById("Moonlight-btn");
   const configureBtn = document.getElementById("Configure-btn");
+  if (moonlightBtn == null || configureBtn == null) {
+    console.log('Connection button is not available')
+    return
+  }
+
+
   moonlightBtn.onclick = async () => {
     const ip = document.getElementById("ipAddress").value;
     const bitrate = document.getElementById("bitrate").value;
     const height = document.getElementById("height").value;
     const width = document.getElementById("width").value;
+
+
+
+
     StartMoonlight(ip, {
       bitrate: bitrate,
       width: width * 1000,  
@@ -34,6 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let i = 0; i < logs.length; i++) {
         const log = logs[i];
         const logDiv = document.getElementById("moonlightLog");
+        if (logDiv == null)
+            continue
         logDiv.innerHTML = logDiv.innerHTML + log.message + "<br>" + "<hr class='solid'></hr>";
       }
     }
@@ -46,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(logsServer[i]);
           const log = logsServer[i];
           const logDiv = document.getElementById("serverLog");
+          if (logDiv == null)
+            continue
           logDiv.innerHTML +=log.timestamp + "|"  + log.log + "<br>" + "<hr class='solid'></hr>";
         }
       }
