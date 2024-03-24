@@ -2,14 +2,14 @@ let socket = io.connect("https://play.grupobright.com:8080");
 let tokenSalvo;
 let tokenCustom;
 
-import {
+const {
   ConfigureDaemon,
   GetLog,
   GetLoggingMoonlight,
   GetServerLog,
   StartMoonlight,
   StartThinkmay,
-} from "../src-tauri/tauri.ts";
+} = require("../src-tauri/tauri.ts");
 
 //SETANDO FUNÇÃO DE STREAM VM
 
