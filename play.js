@@ -466,6 +466,7 @@ $(document).ready(function () {
   };
 
   $("#popup-regiao")[0].onclick = function () {
+    console.log("Trocando Região");
     socket.emit("trocar-regiao", "trocarRegiao");
   };
 
