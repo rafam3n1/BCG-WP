@@ -225,21 +225,21 @@ socket.on("changeRegion", async function (msg) {
     socket.emit("region", "yes");
     socket.emit("choose", "google");
     socket.emit("vmCommand", { evento: "List" });
-    socket.emit("trocar-regiao", "trocarRegiao");
+    socket.emit("carregamento-regiao", "carregamentoRegiao");
   };
 
   $("#southamerica-east1-c")[0].onclick = function () {
     socket.emit("region", "yes1");
     socket.emit("choose", "google");
     socket.emit("vmCommand", { evento: "List" });
-    socket.emit("trocar-regiao", "trocarRegiao");
+    socket.emit("carregamento-regiao", "carregamentoRegiao");
   };
 
   $('div[data-id="ef7fe9a"]')[0].onclick = function () {
     socket.emit("region", "no");
     socket.emit("choose", "google");
     socket.emit("vmCommand", { evento: "List" });
-    socket.emit("trocar-regiao", "trocarRegiao");
+    socket.emit("carregamento-regiao", "carregamentoRegiao");
   };
 });
 
@@ -466,6 +466,11 @@ $(document).ready(function () {
 
   $("#interromper-botao")[0].onclick = function () {
     socket.emit("sair", "sairFila");
+  };
+
+  $("#popup-regiao")[0].onclick = function () {
+    console.log("Trocando Região");
+    socket.emit("trocar-regiao", "trocarRegiao");
   };
 
   socket.on("newStreamURL", async function (msg) {
