@@ -223,21 +223,18 @@ socket.on("changeRegion", async function (msg) {
   //botão sim
   $('div[data-id="57b3113"]')[0].onclick = function () {
     socket.emit("region", "yes");
-    new Promise((res) => setTimeout(res, 60000));
     socket.emit("choose", "google");
     socket.emit("vmCommand", { evento: "List" });
   };
 
   $("#southamerica-east1-c")[0].onclick = function () {
     socket.emit("region", "yes1");
-    new Promise((res) => setTimeout(res, 60000));
     socket.emit("choose", "google");
     socket.emit("vmCommand", { evento: "List" });
   };
 
   $('div[data-id="ef7fe9a"]')[0].onclick = function () {
     socket.emit("region", "no");
-    new Promise((res) => setTimeout(res, 60000));
     socket.emit("choose", "google");
     socket.emit("vmCommand", { evento: "List" });
   };
