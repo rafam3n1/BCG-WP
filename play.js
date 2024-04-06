@@ -465,11 +465,6 @@ $(document).ready(function () {
     socket.emit("sair", "sairFila");
   };
 
-  $("#popup-regiao")[0].onclick = function () {
-    console.log("Trocando Região");
-    socket.emit("trocar-regiao", "trocarRegiao");
-  };
-
   socket.on("newStreamURL", async function (msg) {
     $("#loading")[0].style.display = "none";
     $("#vm-criada")[0].style.display = "flex";
