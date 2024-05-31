@@ -96,7 +96,7 @@ socket.on("error", async function (msg) {
   $("#loading")[0].style.display = "none";
   $("#jogos")[0].style.display = "flex";
   if (msg.code != "") {
-    elementorProFrontend.modules.popup.showPopup({ id: 11155 });
+    elementorProFrontend.modules.popup.showPopup({ id: 49478 });
     $("#label-erro")[0].innerHTML = msg.code;
   }
 });
@@ -202,7 +202,7 @@ socket.on("avaliable", function (msg) {
 socket.on("assinatura", async function (msg) {
   console.log(`Status assinatura - ${msg}`);
   if (msg == false) {
-    elementorProFrontend.modules.popup.showPopup({ id: 7665 });
+    elementorProFrontend.modules.popup.showPopup({ id: 49498 });
   } else {
     socket.emit("choose", "fisica");
     socket.emit("vmCommand", { evento: "List" });
@@ -443,7 +443,7 @@ $(document).ready(function () {
   //SETANDO FUNÇÃO DE RESETAR VM
 
   $("#popupreset-botao")[0].onclick = function () {
-    elementorProFrontend.modules.popup.showPopup({ id: 24260 });
+    elementorProFrontend.modules.popup.showPopup({ id: 49488 });
 
     $("#resetar-botao")[0].onclick = function () {
       socket.emit("reset", "");
