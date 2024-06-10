@@ -185,7 +185,10 @@ socket.on("status", async function (msg) {
 
 socket.on("avaliable", function (msg) {
 
-  $("#label_total")[0].querySelector("span").innerHTML=`RTX: ${msg.rtx} e Total: ${msg.gtx}`
+  const gtxY = parseInt(msg.gtx.split(': ')[1], 10);
+  const rtxY = parseInt(msg.rtx.split(': ')[1], 10);
+  const total = gtxY + rtxY;  
+  $("#label_total")[0].querySelector("span").innerHTML=`RTX: ${rtxY} e Total: ${total}`
 
   /*
   var disponiveis = document.getElementById("disponiveis");
