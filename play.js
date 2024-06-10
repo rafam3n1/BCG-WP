@@ -186,6 +186,8 @@ socket.on("status", async function (msg) {
 socket.on("avaliable", function (msg) {
 
   $("#label_total")[0].querySelector("span").innerHTML=`RTX: ${msg.rtx} e Total: ${msg.gtx}`
+
+  /*
   var disponiveis = document.getElementById("disponiveis");
 
   // Seleciona todos os elementos <li> dentro de "disponiveis"
@@ -198,7 +200,7 @@ socket.on("avaliable", function (msg) {
     msg.priority; // priority
   listItems[3].querySelector(".elementor-icon-list-text").textContent = msg.rtx; // RTX
   listItems[4].querySelector(".elementor-icon-list-text").textContent = msg.gtx; // GTX
-  console.log(`Google: ${msg.google} - Azure: ${msg.azure}`);
+  console.log(`Google: ${msg.google} - Azure: ${msg.azure}`);*/
 });
 
 socket.on("assinatura", async function (msg) {
