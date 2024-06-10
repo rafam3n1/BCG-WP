@@ -184,6 +184,8 @@ socket.on("status", async function (msg) {
 });
 
 socket.on("avaliable", function (msg) {
+
+  $("#label_total")[0].querySelector("span").innerHTML=`RTX: ${msg.rtx} e Total: ${msg.gtx}`
   var disponiveis = document.getElementById("disponiveis");
 
   // Seleciona todos os elementos <li> dentro de "disponiveis"
