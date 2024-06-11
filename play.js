@@ -228,7 +228,7 @@ socket.on("changeRegion", async function (msg) {
   elementorProFrontend.modules.popup.showPopup({ id: 49573 });
 
   //botão sim
-  $('div[data-id="57b3113"]')[0].onclick = function () {
+  $("#southamerica-east1-a")[0].onclick = function () {
     socket.emit("region", "yes");
     socket.emit("choose", "google");
     socket.emit("vmCommand", { evento: "List" });
@@ -240,7 +240,7 @@ socket.on("changeRegion", async function (msg) {
     socket.emit("vmCommand", { evento: "List" });
   };
 
-  $('div[data-id="ef7fe9a"]')[0].onclick = function () {
+  $("#us-east4-c")[0].onclick = function () {
     socket.emit("region", "no");
     socket.emit("choose", "google");
     socket.emit("vmCommand", { evento: "List" });
