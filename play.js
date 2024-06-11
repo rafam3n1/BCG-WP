@@ -225,7 +225,7 @@ socket.on("assinatura", async function (msg) {
 
 socket.on("changeRegion", async function (msg) {
   //abrir poupp
-  elementorProFrontend.modules.popup.showPopup({ id: 37412 });
+  elementorProFrontend.modules.popup.showPopup({ id: 49573 });
 
   //botão sim
   $('div[data-id="57b3113"]')[0].onclick = function () {
