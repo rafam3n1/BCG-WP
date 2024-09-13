@@ -176,7 +176,7 @@ socket.on("infoUser", async function (msg) {
   document.getElementById("infoscliente").querySelector("h2").innerHTML = `
   Suas gerações do mês: ${msg.vmsGeradas}
   <div>Tempo última máquina: ${parseInt(msg.tempoUltimaVM)} horas</div>
-  <div>Horas totais de utilização: ${parseInt(msg.horasTotaisUtilizadas)} horas</div>
+  <div>Tempo total de utilização: ${parseInt(msg.horasTotaisUtilizadas)} minutos</div>
   <div>Assinatura atual: ${msg.assinaturaAtual}</div>
 `;
 })
