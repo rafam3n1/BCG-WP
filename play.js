@@ -1,4 +1,4 @@
-let socket = io.connect("https://play.grupobright.com:8080");
+let socket = io.connect("https://api.grupobright.com");
 let tokenSalvo;
 let tokenCustom;
 
@@ -124,7 +124,7 @@ socket.on("connect", async function (msg) {
 
     socket.disconnect();
     await new Promise((res) => setTimeout(res, 3000));
-    socket = io.connect("https://play.grupobright.com:8080");
+    socket = io.connect("https://api.grupobright.com");
   }
 
   /*
