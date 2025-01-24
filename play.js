@@ -110,13 +110,13 @@ socket.on("connect", async function (msg) {
 
   let tokenSelecionado;
   while (true) {
-    await fetch("https://grupobright.com/check.php").then(async function (
+    await fetch("https://grupobright.com/userlogin.php").then(async function (
       response
     ) {
       tokenSelecionado = await response.text();
       console.log("Conectado ao Servidor");
       console.log("Servidor: " + tokenSelecionado);
-      socket.emit("authenticate", tokenSelecionado);
+      socket.emit("newAuth", tokenSelecionado);
       tokenSalvo = tokenSelecionado;
     });
 
