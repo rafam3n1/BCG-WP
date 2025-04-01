@@ -173,12 +173,12 @@ socket.on("created", async function (msg) {
 
 
 socket.on("infoUser", async function (msg) {
-  document.getElementById("infoscliente").querySelector("h2").innerHTML = `
-  Suas gerações do mês: ${msg.vmsGeradas}
-  <div>Tempo da última máquina: ${msg.tempoUltimaVM}</div>
-  <div>Tempo total de utilização: ${msg.horasTotaisUtilizadas}</div>
-  <div>Assinatura atual: ${msg.assinaturaAtual}</div>
-`;
+  var elementosInfo= document.querySelectorAll('#infoscliente .elementor-icon-list-items b');
+  elementosInfo[0].textContent = msg.vmsGeradas;
+  elementosInfo[1].textContent = msg.tempoUltimaVM;
+  elementosInfo[2].textContent = msg.horasTotaisUtilizadas;
+  elementosInfo[3].textContent = msg.assinaturaAtual;
+ 
 })
 
 socket.on("vms", async function (msg) {
