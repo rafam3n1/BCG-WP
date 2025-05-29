@@ -265,10 +265,15 @@ socket.on("fisica2", async function (msg) {
   socket.emit("vmCommand", { evento: "CreateVM" });
 });
 
+// MODIFICADO: Evento de fila agora apenas atualiza o status sem alterar o loading
 socket.on("fila", async function (msg) {
   var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
   var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
   firstItem.innerHTML = `Posição na fila: ${msg.position + 1}`;
+  
+  // IMPORTANTE: NÃO alteramos o estado do loading aqui
+  // O loading já deve estar sendo mostrado desde quando o usuário clicou no botão priority
+  // e deve continuar sendo mostrado até a VM ser criada
 });
 
 socket.on("vmCheckStatus", function (msg) {
