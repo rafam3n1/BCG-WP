@@ -229,7 +229,7 @@ socket.on("assinatura", async function (msg) {
 
     var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
     var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
-    firstItem.innerHTML = "Espere 20 segundos que sua VM está carregando";
+    firstItem.innerHTML = "Espere 20 segundos que sua VM est� carregando";
   }
 });
 
@@ -237,7 +237,7 @@ socket.on("changeRegion", async function (msg) {
   //abrir poupp
   elementorProFrontend.modules.popup.showPopup({ id: 49573 });
 
-  //botão sim
+  //bot�o sim
   $("#southamerica-east1-a")[0].onclick = function () {
     socket.emit("region", "yes");
     socket.emit("choose", "google");
@@ -260,33 +260,25 @@ socket.on("changeRegion", async function (msg) {
 socket.on("fisica2", async function (msg) {
   var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
   var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
-  firstItem.innerHTML = "Carregando sua VM Física";
+  firstItem.innerHTML = "Carregando sua VM F�sica";
 
   socket.emit("vmCommand", { evento: "CreateVM" });
 });
 
-// MODIFICADO: Evento de fila agora apenas atualiza o status sem alterar o loading
-socket.on("fila", async function (msg) {
-  var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
-  var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
-  firstItem.innerHTML = `Posição na fila: ${msg.position + 1}`;
-  
-  // IMPORTANTE: NÃO alteramos o estado do loading aqui
-  // O loading já deve estar sendo mostrado desde quando o usuário clicou no botão priority
-  // e deve continuar sendo mostrado até a VM ser criada
-});
+// REMOVIDO: Handler conflitante de "fila" que estava sobrepondo os eventos "status" do backend
+// O backend agora usa apenas eventos "status" para todas as atualiza��es de posi��o na fila
 
 socket.on("vmCheckStatus", function (msg) {
   const statuses = {
-    RUNNING: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#33cc33"><text>Ligada</text></font>`,
-    TERMINATED: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ffcc00"><text>Desligada</text></font>`,
-    DELETED: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ff3300"><text>Deletada</text></font>`,
+    RUNNING: `<font color="#ffffff"><text>Status da m�quina:</text></font> <font color="#33cc33"><text>Ligada</text></font>`,
+    TERMINATED: `<font color="#ffffff"><text>Status da m�quina:</text></font> <font color="#ffcc00"><text>Desligada</text></font>`,
+    DELETED: `<font color="#ffffff"><text>Status da m�quina:</text></font> <font color="#ff3300"><text>Deletada</text></font>`,
   };
 
   $("#statusmaquina")[0].children[0].innerHTML = statuses[msg];
 });
 
-///REDEFININDO ONCLICK BOTÕES
+///REDEFININDO ONCLICK BOT�ES
 
 $(document).ready(function () {
   console.log("Pagina carregada");
@@ -447,7 +439,7 @@ $(document).ready(function () {
     socket.emit("auth", $("#form-field-pin")[0].value);
   };
 
-  //SETANDO FUNÇÃO DE DESLIGAR VM
+  //SETANDO FUN��O DE DESLIGAR VM
 
   $("#desligarvm-botao")[0].onclick = function () {
     socket.emit("interromper", {
@@ -458,9 +450,9 @@ $(document).ready(function () {
     $("#jogos")[0].style.display = "flex";
   };
 
-  //SETANDO FUNÇÃO DE STREAM VM
+  //SETANDO FUN��O DE STREAM VM
 
-  //SETANDO FUNÇÃO DE RESETAR VM
+  //SETANDO FUN��O DE RESETAR VM
 
   $("#popupreset-botao")[0].onclick = function () {
     elementorProFrontend.modules.popup.showPopup({ id: 49488 });
