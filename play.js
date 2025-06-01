@@ -229,7 +229,7 @@ socket.on("assinatura", async function (msg) {
 
     var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
     var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
-    firstItem.innerHTML = "Espere 20 segundos que sua VM est� carregando";
+    firstItem.innerHTML = "Aguarde, sua máquina será iniciada";
   }
 });
 
@@ -260,7 +260,7 @@ socket.on("changeRegion", async function (msg) {
 socket.on("fisica2", async function (msg) {
   var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
   var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
-  firstItem.innerHTML = "Carregando sua VM F�sica";
+  firstItem.innerHTML = "Carregando sua máquina";
 
   socket.emit("vmCommand", { evento: "CreateVM" });
 });
@@ -270,9 +270,9 @@ socket.on("fisica2", async function (msg) {
 
 socket.on("vmCheckStatus", function (msg) {
   const statuses = {
-    RUNNING: `<font color="#ffffff"><text>Status da m�quina:</text></font> <font color="#33cc33"><text>Ligada</text></font>`,
-    TERMINATED: `<font color="#ffffff"><text>Status da m�quina:</text></font> <font color="#ffcc00"><text>Desligada</text></font>`,
-    DELETED: `<font color="#ffffff"><text>Status da m�quina:</text></font> <font color="#ff3300"><text>Deletada</text></font>`,
+    RUNNING: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#33cc33"><text>Ligada</text></font>`,
+    TERMINATED: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ffcc00"><text>Desligada</text></font>`,
+    DELETED: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ff3300"><text>Deletada</text></font>`,
   };
 
   $("#statusmaquina")[0].children[0].innerHTML = statuses[msg];
