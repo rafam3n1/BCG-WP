@@ -30,10 +30,6 @@ socket.on("criado", async function (mesg) {
       mesg.streamUrl + `&vm_password=${btoa(btoa(mesg.password))}`;
   };
 
-  $("#entrarURI")[0].onclick = function () {
-    open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`);
-    console.log(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`);
-  };
 });
 
 socket.on("RecCreated", async function (mesg) {
