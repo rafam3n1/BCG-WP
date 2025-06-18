@@ -305,18 +305,22 @@ $(document).ready(function () {
   $("#launcher-botao")[0].onclick = function () {
     gameSelecionado = "bcg";
   };
+  
   //FIFA23
   $("#fifa23-botao")[0].onclick = function () {
     gameSelecionado = "fifa23";
   };
+  
   //CS-GO
   $("#csgo-botao")[0].onclick = function () {
     gameSelecionado = "cs-go";
   };
+  
   //BLACK DESERT
   $("#bdo-botao")[0].onclick = function () {
     gameSelecionado = "blackdesert";
   };
+  
   //COD WARZONE
   $("#warzone-botao")[0].onclick = function () {
     gameSelecionado = "cod";
@@ -330,18 +334,22 @@ $(document).ready(function () {
   $("#eldenring-botao")[0].onclick = function () {
     gameSelecionado = "eldenring";
   };
+  
   //GTA STEAM
   $("#gtav-steam-botao")[0].onclick = function () {
     gameSelecionado = "gtav-steam";
   };
+  
   //GTA EPIC
   $("#gtav-epic-botao")[0].onclick = function () {
     gameSelecionado = "gtav-epic";
   };
+  
   //GTA ROCKSTAR
   $("#gtav-rockstar-botao")[0].onclick = function () {
     gameSelecionado = "gtav-rockstar";
   };
+  
   //HOGWARTS LEGACY
   $("#hlegacy-botao")[0].onclick = function () {
     gameSelecionado = "hoglegacy";
@@ -350,18 +358,22 @@ $(document).ready(function () {
   $("#god-of-war-botao")[0].onclick = function () {
     gameSelecionado = "god-of-war";
   };
+  
   //FIFA22
   $("#fifa22-botao")[0].onclick = function () {
     gameSelecionado = "fifa22";
   };
+  
   //LOSTARK
   $("#lostark-botao")[0].onclick = function () {
     gameSelecionado = "lostark";
   };
+  
   //RED DEAD
   $("#reddead-botao")[0].onclick = function () {
     gameSelecionado = "reddead";
   };
+  
   //ROCKET LEAGUE EPIC
   $("#rleague-epic-botao")[0].onclick = function () {
     gameSelecionado = "rleague-epic";
@@ -370,11 +382,13 @@ $(document).ready(function () {
   $("#rleague-steam-botao")[0].onclick = function () {
     gameSelecionado = "rleague-steam";
   };
+  
   //RDR2 EPIC
   $("#reddead-epic-botao")[0].onclick = function () {
     gameSelecionado = "reddead-epic";
   };
-  //RDR2 EPIC
+  
+  //RDR2 STEAM
   $("#reddead-botao")[0].onclick = function () {
     gameSelecionado = "reddead";
   };
@@ -434,13 +448,33 @@ $(document).ready(function () {
   };
 
   //SETANDO PIN MOON
-
   $("#pair-button")[0].onclick = function () {
     socket.emit("auth", $("#form-field-pin")[0].value);
   };
 
-  //SETANDO FUN��O DE DESLIGAR VM
+  //BAIXANDO CONF WIREGUARD
+  $("#wireguard-conf")[0].onclick = function () {
+    socket.emit("wireguard");
+  };
 
+  socket.on("wireguardConfig", function(data) {
+    try {
+      const blob = new Blob([data.config], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = data.filename;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error('Erro ao baixar configuração WireGuard:', error);
+    }
+  });
+
+  //SETANDO FUN��O DE DESLIGAR VM
   $("#desligarvm-botao")[0].onclick = function () {
     socket.emit("interromper", {
       feedback: "Feedback setado automaticamente (site novo)",
@@ -453,7 +487,6 @@ $(document).ready(function () {
   //SETANDO FUN��O DE STREAM VM
 
   //SETANDO FUN��O DE RESETAR VM
-
   $("#popupreset-botao")[0].onclick = function () {
     elementorProFrontend.modules.popup.showPopup({ id: 49488 });
 
@@ -499,23 +532,28 @@ $(document).ready(function () {
   $("#launcher-botao-custom")[0].onclick = function () {
     gameSelecionado = "bcg";
   };
+  
   // FIFA23 CUSTOM
   $("#fifa23-botao-custom")[0].onclick = function () {
     gameSelecionado = "fifa23";
   };
+  
   // CS-GO CUSTOM
   $("#csgo-botao-custom")[0].onclick = function () {
     gameSelecionado = "cs-go";
   };
+  
   // BLACK DESERT CUSTOM
   $("#bdo-botao-custom")[0].onclick = function () {
     gameSelecionado = "blackdesert";
   };
+  
   // COD WARZONE CUSTOM
   $("#warzone-botao-custom")[0].onclick = function () {
     gameSelecionado = "cod";
   };
 
+  // COD WARZONE CUSTOM STEAM
   $("#warzonesteam-botao-custom")[0].onclick = function () {
     gameSelecionado = "cod-steam";
   };
@@ -524,46 +562,57 @@ $(document).ready(function () {
   $("#eldenring-botao-custom")[0].onclick = function () {
     gameSelecionado = "eldenring";
   };
+  
   // GTA STEAM CUSTOM
   $("#gtav-steam-botao-custom")[0].onclick = function () {
     gameSelecionado = "gtav-steam";
   };
+  
   // GTA EPIC CUSTOM
   $("#gtav-epic-botao-custom")[0].onclick = function () {
     gameSelecionado = "gtav-epic";
   };
+  
   // GTA ROCKSTAR CUSTOM
   $("#gtav-rockstar-botao-custom")[0].onclick = function () {
     gameSelecionado = "gtav-rockstar";
   };
+  
   // HOGWARTS LEGACY CUSTOM
   $("#hlegacy-botao-custom")[0].onclick = function () {
     gameSelecionado = "hlegacy";
   };
+  
   // GOW 1 CUSTOM
   $("#god-of-war-botao-custom")[0].onclick = function () {
     gameSelecionado = "god-of-war";
   };
+  
   // FIFA22 CUSTOM
   $("#fifa22-botao-custom")[0].onclick = function () {
     gameSelecionado = "fifa22";
   };
+  
   // LOSTARK CUSTOM
   $("#lostark-botao-custom")[0].onclick = function () {
     gameSelecionado = "lostark";
   };
+  
   // RED DEAD CUSTOM
   $("#reddead-botao-custom")[0].onclick = function () {
     gameSelecionado = "reddead";
   };
+  
   // ROCKET LEAGUE EPIC CUSTOM
   $("#rleague-epic-botao-custom")[0].onclick = function () {
     gameSelecionado = "rleague-epic";
   };
+  
   // ROCKET LEAGUE STEAM CUSTOM
   $("#rleague-steam-botao-custom")[0].onclick = function () {
     gameSelecionado = "rleague-steam";
   };
+  
   // RDR2 EPIC CUSTOM
   $("#reddead-epic-botao-custom")[0].onclick = function () {
     gameSelecionado = "reddead-epic";
