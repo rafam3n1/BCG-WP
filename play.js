@@ -449,10 +449,6 @@ $(document).ready(function () {
   };
 
   //BAIXANDO CONF WIREGUARD
-  $("#wireguard-conf")[0].onclick = function () {
-    socket.emit("wireguard");
-  };
-
   socket.on("wireguardConfig", function(data) {
     try {
       const blob = new Blob([data.config], { type: 'text/plain' });
@@ -469,6 +465,10 @@ $(document).ready(function () {
       console.error('Erro ao baixar configuração WireGuard:', error);
     }
   });
+  
+  $("#wireguard-conf")[0].onclick = function () {
+    socket.emit("wireguard");
+  };
 
   //SETANDO FUN��O DE DESLIGAR VM
   $("#desligarvm-botao")[0].onclick = function () {
