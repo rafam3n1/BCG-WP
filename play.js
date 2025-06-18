@@ -60,10 +60,6 @@ socket.on("RecCreated", async function (mesg) {
       mesg.streamUrl + `&vm_password=${btoa(btoa(mesg.password))}`;
   };
 
-  $("#entrarURI")[0].onclick = function () {
-    open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`);
-    console.log(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`);
-  };
 });
 
 socket.on("reconnect", async function (msg) {
@@ -161,10 +157,6 @@ socket.on("created", async function (msg) {
       msg.streamUrl + `&vm_password=${btoa(btoa(msg.password))}`;
   };
 
-  $("#entrarURI")[0].onclick = function () {
-    open(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`);
-    console.log(`bright-app://${ipURI}*${tokenSalvo}*${gameURI}`);
-  };
 });
 
 
