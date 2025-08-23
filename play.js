@@ -22,12 +22,6 @@ socket.on("criado", async function (mesg) {
   } else {
     $("#form-field-ipmoonlight")[0].value = mesg.ip;
   }
-
-  $("#stream-botao")[0].onclick = function () {
-    window.location.href =
-      mesg.streamUrl + `&vm_password=${btoa(btoa(mesg.password))}`;
-  };
-
 });
 
 socket.on("RecCreated", async function (mesg) {
@@ -52,16 +46,10 @@ socket.on("RecCreated", async function (mesg) {
   } else {
     $("#form-field-ipmoonlight")[0].value = mesg.ip;
   }
-
-  $("#stream-botao")[0].onclick = function () {
-    window.location.href =
-      mesg.streamUrl + `&vm_password=${btoa(btoa(mesg.password))}`;
-  };
-
 });
 
 socket.on("reconnect", async function (msg) {
-  var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+  var parentElement = document.getElementById("status_text");
   var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
 
   if (msg != "NADA") {
@@ -72,7 +60,7 @@ socket.on("reconnect", async function (msg) {
 });
 
 socket.on("interrompido", async function (msg) {
-  var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+  var parentElement = document.getElementById("status_text");
   var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
   firstItem.innerHTML = "Carregando";
   $("#loading")[0].style.display = "none";
@@ -80,7 +68,7 @@ socket.on("interrompido", async function (msg) {
 });
 
 socket.on("error", async function (msg) {
-  var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+  var parentElement = document.getElementById("status_text");
   var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
   firstItem.innerHTML = "Carregando";
   $("#loading")[0].style.display = "none";
@@ -115,13 +103,12 @@ socket.on("connect", async function (msg) {
   }
 
   /*
-    await fetch('https://grupobright.com/customcheck.php')
+  await fetch('https://grupobright.com/customcheck.php')
     .then(async function(response) {
-        tokenCustom=await response.text();
-        console.log("Conectado ao Servidor")
-        socket.emit("authenticateCustom", tokenCustom)
-       
-    })*/
+      tokenCustom=await response.text();
+      socket.emit("authenticateCustom", tokenCustom)
+    })
+  */
 });
 
 socket.on("created", async function (msg) {
@@ -146,57 +133,43 @@ socket.on("created", async function (msg) {
   } else {
     $("#form-field-ipmoonlight")[0].value = msg.ip;
   }
-
-  $("#stream-botao")[0].onclick = function () {
-    window.location.href =
-      msg.streamUrl + `&vm_password=${btoa(btoa(msg.password))}`;
-  };
-
 });
 
-
 socket.on("infoUser", async function (msg) {
-  var elementosInfo= document.querySelectorAll('#infoscliente .elementor-icon-list-items b');
+  var elementosInfo = document.querySelectorAll('#infoscliente .elementor-icon-list-items b');
   elementosInfo[0].textContent = msg.vmsGeradas;
   elementosInfo[1].textContent = msg.tempoUltimaVM;
   elementosInfo[2].textContent = msg.horasTotaisUtilizadas;
   elementosInfo[3].textContent = msg.assinaturaAtual;
- 
-})
+});
 
 socket.on("vms", async function (msg) {
   console.log(msg);
   socket.emit("vmCommand", { evento: "CreateVM", game: gameSelecionado });
-  //socket.emit("vmCommand", { "evento": "List"})
+  // socket.emit("vmCommand", { "evento": "List" })
 });
 
 socket.on("status", async function (msg) {
-  var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+  var parentElement = document.getElementById("status_text");
   var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
   firstItem.innerHTML = msg;
 });
 
 socket.on("avaliable", function (msg) {
-
   const gtxY = parseInt(msg.gtx.split(': ')[1], 10);
   const rtxY = parseInt(msg.rtx.split(': ')[1], 10);
-  const total = gtxY + rtxY;  
-  $("#label_total")[0].querySelector("span").innerHTML=`RTX: ${rtxY} e Total: ${total}`
+  const total = gtxY + rtxY;
+  $("#label_total")[0].querySelector("span").innerHTML = `RTX: ${rtxY} e Total: ${total}`;
 
   /*
   var disponiveis = document.getElementById("disponiveis");
-
-  // Seleciona todos os elementos <li> dentro de "disponiveis"
   var listItems = disponiveis.querySelectorAll("li");
-  listItems[0].querySelector(".elementor-icon-list-text").textContent =
-    msg.google; //GOOGLE
-  listItems[1].querySelector(".elementor-icon-list-text").textContent =
-    msg.azure; // AZURE
-  listItems[2].querySelector(".elementor-icon-list-text").textContent =
-    msg.priority; // priority
-  listItems[3].querySelector(".elementor-icon-list-text").textContent = msg.rtx; // RTX
-  listItems[4].querySelector(".elementor-icon-list-text").textContent = msg.gtx; // GTX
-  console.log(`Google: ${msg.google} - Azure: ${msg.azure}`);*/
+  listItems[0].querySelector(".elementor-icon-list-text").textContent = msg.google; // GOOGLE
+  listItems[1].querySelector(".elementor-icon-list-text").textContent = msg.azure;  // AZURE
+  listItems[2].querySelector(".elementor-icon-list-text").textContent = msg.priority; // priority
+  listItems[3].querySelector(".elementor-icon-list-text").textContent = msg.rtx;   // RTX
+  listItems[4].querySelector(".elementor-icon-list-text").textContent = msg.gtx;   // GTX
+  */
 });
 
 socket.on("assinatura", async function (msg) {
@@ -210,17 +183,16 @@ socket.on("assinatura", async function (msg) {
     $("#jogos")[0].style.display = "none";
     $("#loading")[0].style.display = "flex";
 
-    var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+    var parentElement = document.getElementById("status_text");
     var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
     firstItem.innerHTML = "Aguarde, sua máquina será iniciada";
   }
 });
 
 socket.on("changeRegion", async function (msg) {
-  //abrir poupp
+  // abrir popup
   elementorProFrontend.modules.popup.showPopup({ id: 49573 });
 
-  //bot�o sim
   $("#southamerica-east1-a")[0].onclick = function () {
     socket.emit("region", "yes");
     socket.emit("choose", "google");
@@ -241,27 +213,22 @@ socket.on("changeRegion", async function (msg) {
 });
 
 socket.on("fisica2", async function (msg) {
-  var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
+  var parentElement = document.getElementById("status_text");
   var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
   firstItem.innerHTML = "Carregando sua máquina";
 
   socket.emit("vmCommand", { evento: "CreateVM" });
 });
 
-// REMOVIDO: Handler conflitante de "fila" que estava sobrepondo os eventos "status" do backend
-// O backend agora usa apenas eventos "status" para todas as atualiza��es de posi��o na fila
-
+// REMOVIDO: handler conflitante de "fila" (mantemos apenas "status")
 socket.on("vmCheckStatus", function (msg) {
   const statuses = {
     RUNNING: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#33cc33"><text>Ligada</text></font>`,
     TERMINATED: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ffcc00"><text>Desligada</text></font>`,
     DELETED: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#ff3300"><text>Deletada</text></font>`,
   };
-
   $("#statusmaquina")[0].children[0].innerHTML = statuses[msg];
 });
-
-///REDEFININDO ONCLICK BOT�ES
 
 $(document).ready(function () {
   console.log("Pagina carregada");
@@ -277,166 +244,45 @@ $(document).ready(function () {
     );
   };
 
-  //DELETAR PRIORITY VM
-  //$("#resetar-botao")[0].onclick=(function(){
-  //  socket.emit("deletarFisica","")
-  //})
+  // SETANDO JOGOS QUANDO CLICA NO BOTAO
+  $("#launcher-botao")[0].onclick = function () { gameSelecionado = "bcg"; };
+  $("#fifa23-botao")[0].onclick = function () { gameSelecionado = "fifa23"; };
+  $("#csgo-botao")[0].onclick = function () { gameSelecionado = "cs-go"; };
+  $("#bdo-botao")[0].onclick = function () { gameSelecionado = "blackdesert"; };
+  $("#warzone-botao")[0].onclick = function () { gameSelecionado = "cod"; };
+  $("#warzonesteam-botao")[0].onclick = function () { gameSelecionado = "cod-steam"; };
+  $("#eldenring-botao")[0].onclick = function () { gameSelecionado = "eldenring"; };
+  $("#gtav-steam-botao")[0].onclick = function () { gameSelecionado = "gtav-steam"; };
+  $("#gtav-epic-botao")[0].onclick = function () { gameSelecionado = "gtav-epic"; };
+  $("#gtav-rockstar-botao")[0].onclick = function () { gameSelecionado = "gtav-rockstar"; };
+  $("#hlegacy-botao")[0].onclick = function () { gameSelecionado = "hoglegacy"; };
+  $("#god-of-war-botao")[0].onclick = function () { gameSelecionado = "god-of-war"; };
+  $("#fifa22-botao")[0].onclick = function () { gameSelecionado = "fifa22"; };
+  $("#lostark-botao")[0].onclick = function () { gameSelecionado = "lostark"; };
+  $("#reddead-botao")[0].onclick = function () { gameSelecionado = "reddead"; };
+  $("#rleague-epic-botao")[0].onclick = function () { gameSelecionado = "rleague-epic"; };
+  $("#rleague-steam-botao")[0].onclick = function () { gameSelecionado = "rleague-steam"; };
+  $("#reddead-epic-botao")[0].onclick = function () { gameSelecionado = "reddead-epic"; };
+  $("#reddead-botao")[0].onclick = function () { gameSelecionado = "reddead"; };
+  $("#horizonzerodawn-botao")[0].onclick = function () { gameSelecionado = "horizonzerodawn"; };
+  $("#overwatch-botao")[0].onclick = function () { gameSelecionado = "overwatch"; };
+  $("#baldurs-botao")[0].onclick = function () { gameSelecionado = "baldurs-gate3"; };
+  $("#starfield-botao")[0].onclick = function () { gameSelecionado = "starfield"; };
+  $("#starfield-xbox-botao")[0].onclick = function () { gameSelecionado = "starfield-xbox"; };
+  $("#forzahorizon5-botao")[0].onclick = function () { gameSelecionado = "forza-horizon"; };
+  $("#seaofthieves-botao")[0].onclick = function () { gameSelecionado = "seaofthieves"; };
+  $("#seaofthieves-steam-botao")[0].onclick = function () { gameSelecionado = "sea-steam"; };
+  $("#wow-botao")[0].onclick = function () { gameSelecionado = "wow"; };
+  $("#cyberpunk-botao")[0].onclick = function () { gameSelecionado = "cyberpunk"; };
+  $("#mortalkombat1-botao")[0].onclick = function () { gameSelecionado = "morta-kombat1"; };
 
-  //SETANDO JOGOS QUANDO CLICA NO BOTAO
-
-  //LAUNCHERS
-  $("#launcher-botao")[0].onclick = function () {
-    gameSelecionado = "bcg";
-  };
-  
-  //FIFA23
-  $("#fifa23-botao")[0].onclick = function () {
-    gameSelecionado = "fifa23";
-  };
-  
-  //CS-GO
-  $("#csgo-botao")[0].onclick = function () {
-    gameSelecionado = "cs-go";
-  };
-  
-  //BLACK DESERT
-  $("#bdo-botao")[0].onclick = function () {
-    gameSelecionado = "blackdesert";
-  };
-  
-  //COD WARZONE
-  $("#warzone-botao")[0].onclick = function () {
-    gameSelecionado = "cod";
-  };
-
-  $("#warzonesteam-botao")[0].onclick = function () {
-    gameSelecionado = "cod-steam";
-  };
-
-  //ELDERRING
-  $("#eldenring-botao")[0].onclick = function () {
-    gameSelecionado = "eldenring";
-  };
-  
-  //GTA STEAM
-  $("#gtav-steam-botao")[0].onclick = function () {
-    gameSelecionado = "gtav-steam";
-  };
-  
-  //GTA EPIC
-  $("#gtav-epic-botao")[0].onclick = function () {
-    gameSelecionado = "gtav-epic";
-  };
-  
-  //GTA ROCKSTAR
-  $("#gtav-rockstar-botao")[0].onclick = function () {
-    gameSelecionado = "gtav-rockstar";
-  };
-  
-  //HOGWARTS LEGACY
-  $("#hlegacy-botao")[0].onclick = function () {
-    gameSelecionado = "hoglegacy";
-  };
-  //GOW 1
-  $("#god-of-war-botao")[0].onclick = function () {
-    gameSelecionado = "god-of-war";
-  };
-  
-  //FIFA22
-  $("#fifa22-botao")[0].onclick = function () {
-    gameSelecionado = "fifa22";
-  };
-  
-  //LOSTARK
-  $("#lostark-botao")[0].onclick = function () {
-    gameSelecionado = "lostark";
-  };
-  
-  //RED DEAD
-  $("#reddead-botao")[0].onclick = function () {
-    gameSelecionado = "reddead";
-  };
-  
-  //ROCKET LEAGUE EPIC
-  $("#rleague-epic-botao")[0].onclick = function () {
-    gameSelecionado = "rleague-epic";
-  };
-  //ROCKET LEAGUE STEAM
-  $("#rleague-steam-botao")[0].onclick = function () {
-    gameSelecionado = "rleague-steam";
-  };
-  
-  //RDR2 EPIC
-  $("#reddead-epic-botao")[0].onclick = function () {
-    gameSelecionado = "reddead-epic";
-  };
-  
-  //RDR2 STEAM
-  $("#reddead-botao")[0].onclick = function () {
-    gameSelecionado = "reddead";
-  };
-
-  //HORIZON ZERO DAWN
-  $("#horizonzerodawn-botao")[0].onclick = function () {
-    gameSelecionado = "horizonzerodawn";
-  };
-  //OVERWATCH
-  $("#overwatch-botao")[0].onclick = function () {
-    gameSelecionado = "overwatch";
-  };
-
-  //BALDURS
-  $("#baldurs-botao")[0].onclick = function () {
-    gameSelecionado = "baldurs-gate3";
-  };
-
-  //STARFIELD
-  $("#starfield-botao")[0].onclick = function () {
-    gameSelecionado = "starfield";
-  };
-
-  //STARFIELD-XBOX
-  $("#starfield-xbox-botao")[0].onclick = function () {
-    gameSelecionado = "starfield-xbox";
-  };
-
-  //forzahorizon5-botao
-  $("#forzahorizon5-botao")[0].onclick = function () {
-    gameSelecionado = "forza-horizon";
-  };
-
-  //SEA OF THIEVES
-  $("#seaofthieves-botao")[0].onclick = function () {
-    gameSelecionado = "seaofthieves";
-  };
-
-  //SEA OF THIEVES STEAM
-  $("#seaofthieves-steam-botao")[0].onclick = function () {
-    gameSelecionado = "sea-steam";
-  };
-
-  //WOW
-  $("#wow-botao")[0].onclick = function () {
-    gameSelecionado = "wow";
-  };
-
-  //CYBERPUNK
-  $("#cyberpunk-botao")[0].onclick = function () {
-    gameSelecionado = "cyberpunk";
-  };
-
-  //MORTALKOMBAT-
-  $("#mortalkombat1-botao")[0].onclick = function () {
-    gameSelecionado = "morta-kombat1";
-  };
-
-  //SETANDO PIN MOON
+  // SETANDO PIN MOON
   $("#pair-button")[0].onclick = function () {
     socket.emit("auth", $("#form-field-pin")[0].value);
   };
 
-  //BAIXANDO CONF WIREGUARD
-  socket.on("wireguardConfig", function(data) {
+  // BAIXANDO CONF WIREGUARD
+  socket.on("wireguardConfig", function (data) {
     try {
       const blob = new Blob([data.config], { type: 'text/plain' });
       const url = window.URL.createObjectURL(blob);
@@ -452,12 +298,12 @@ $(document).ready(function () {
       console.error('Erro ao baixar configuração WireGuard:', error);
     }
   });
-  
+
   $("#wireguard-conf")[0].onclick = function () {
     socket.emit("wireguard");
   };
 
-  //SETANDO FUN��O DE DESLIGAR VM
+  // DESLIGAR VM
   $("#desligarvm-botao")[0].onclick = function () {
     socket.emit("interromper", {
       feedback: "Feedback setado automaticamente (site novo)",
@@ -467,12 +313,9 @@ $(document).ready(function () {
     $("#jogos")[0].style.display = "flex";
   };
 
-  //SETANDO FUN��O DE STREAM VM
-
-  //SETANDO FUN��O DE RESETAR VM
+  // RESETAR VM
   $("#popupreset-botao")[0].onclick = function () {
     elementorProFrontend.modules.popup.showPopup({ id: 49488 });
-
     $("#resetar-botao")[0].onclick = function () {
       socket.emit("reset", "");
       $("#loading")[0].style.display = "flex";
@@ -480,183 +323,39 @@ $(document).ready(function () {
     };
   };
 
-  $("#resetarstream-botao")[0].onclick = function () {
-    $("#loading")[0].style.display = "flex";
-    $("#vm-criada")[0].style.display = "none";
-    var parentElement = document.getElementById("status_text"); // Substitua 'id-do-elemento-pai' pelo ID do elemento pai
-    var firstItem = parentElement.querySelector(".ekit-fancy-prefix-text");
-    firstItem.innerHTML = "Resetando stream";
-    socket.emit("resetStreamURL", "");
-  };
-
   $("#interromper-botao")[0].onclick = function () {
     socket.emit("sair", "sairFila");
   };
 
-  socket.on("newStreamURL", async function (msg) {
-    $("#loading")[0].style.display = "none";
-    $("#vm-criada")[0].style.display = "flex";
-    $("#stream-botao")[0].onclick = function () {
-      window.location.href =
-        msg.streamUrl + `&vm_password=${btoa(btoa(msg.password))}`;
-    };
-  });
-
-  socket.on("restado", async function (msg) {
-    $("#loading")[0].style.display = "none";
-    $("#jogos")[0].style.display = "flex";
-  });
-
-  ///////////////////////////////////////////////////
-  //                    CUSTOM                     //
-  ///////////////////////////////////////////////////
-
-  // LAUNCHERS CUSTOM
-  $("#launcher-botao-custom")[0].onclick = function () {
-    gameSelecionado = "bcg";
-  };
-  
-  // FIFA23 CUSTOM
-  $("#fifa23-botao-custom")[0].onclick = function () {
-    gameSelecionado = "fifa23";
-  };
-  
-  // CS-GO CUSTOM
-  $("#csgo-botao-custom")[0].onclick = function () {
-    gameSelecionado = "cs-go";
-  };
-  
-  // BLACK DESERT CUSTOM
-  $("#bdo-botao-custom")[0].onclick = function () {
-    gameSelecionado = "blackdesert";
-  };
-  
-  // COD WARZONE CUSTOM
-  $("#warzone-botao-custom")[0].onclick = function () {
-    gameSelecionado = "cod";
-  };
-
-  // COD WARZONE CUSTOM STEAM
-  $("#warzonesteam-botao-custom")[0].onclick = function () {
-    gameSelecionado = "cod-steam";
-  };
-
-  // ELDERRING CUSTOM
-  $("#eldenring-botao-custom")[0].onclick = function () {
-    gameSelecionado = "eldenring";
-  };
-  
-  // GTA STEAM CUSTOM
-  $("#gtav-steam-botao-custom")[0].onclick = function () {
-    gameSelecionado = "gtav-steam";
-  };
-  
-  // GTA EPIC CUSTOM
-  $("#gtav-epic-botao-custom")[0].onclick = function () {
-    gameSelecionado = "gtav-epic";
-  };
-  
-  // GTA ROCKSTAR CUSTOM
-  $("#gtav-rockstar-botao-custom")[0].onclick = function () {
-    gameSelecionado = "gtav-rockstar";
-  };
-  
-  // HOGWARTS LEGACY CUSTOM
-  $("#hlegacy-botao-custom")[0].onclick = function () {
-    gameSelecionado = "hlegacy";
-  };
-  
-  // GOW 1 CUSTOM
-  $("#god-of-war-botao-custom")[0].onclick = function () {
-    gameSelecionado = "god-of-war";
-  };
-  
-  // FIFA22 CUSTOM
-  $("#fifa22-botao-custom")[0].onclick = function () {
-    gameSelecionado = "fifa22";
-  };
-  
-  // LOSTARK CUSTOM
-  $("#lostark-botao-custom")[0].onclick = function () {
-    gameSelecionado = "lostark";
-  };
-  
-  // RED DEAD CUSTOM
-  $("#reddead-botao-custom")[0].onclick = function () {
-    gameSelecionado = "reddead";
-  };
-  
-  // ROCKET LEAGUE EPIC CUSTOM
-  $("#rleague-epic-botao-custom")[0].onclick = function () {
-    gameSelecionado = "rleague-epic";
-  };
-  
-  // ROCKET LEAGUE STEAM CUSTOM
-  $("#rleague-steam-botao-custom")[0].onclick = function () {
-    gameSelecionado = "rleague-steam";
-  };
-  
-  // RDR2 EPIC CUSTOM
-  $("#reddead-epic-botao-custom")[0].onclick = function () {
-    gameSelecionado = "reddead-epic";
-  };
-
-  // RDR2 STEAM CUSTOM
-  $("#reddead-botao-custom")[0].onclick = function () {
-    gameSelecionado = "reddead";
-  };
-
-  // HORIZON ZERO DAWN CUSTOM
-  $("#horizonzerodawn-botao-custom")[0].onclick = function () {
-    gameSelecionado = "horizonzerodawn";
-  };
-  // OVERWATCH CUSTOM
-  $("#overwatch-botao-custom")[0].onclick = function () {
-    gameSelecionado = "overwatch";
-  };
-
-  // BALDURS CUSTOM
-  $("#baldurs-botao-custom")[0].onclick = function () {
-    gameSelecionado = "baldurs-gate3";
-  };
-
-  // STARFIELD CUSTOM
-  $("#starfield-botao-custom")[0].onclick = function () {
-    gameSelecionado = "starfield";
-  };
-
-  // STARFIELD-XBOX CUSTOM
-  $("#starfield-xbox-botao-custom")[0].onclick = function () {
-    gameSelecionado = "starfield-xbox";
-  };
-
-  //SEA OF THIEVES CUSTOM
-  $("#seaofthieves-botao-custom")[0].onclick = function () {
-    gameSelecionado = "seaofthieves";
-  };
-
-  //SEA OF THIEVES STEAM custom
-  $("#seaofthieves-steam-botao-custom")[0].onclick = function () {
-    gameSelecionado = "sea-steam";
-  };
-
-  //forzahorizon5-botao
-  $("#forzahorizon5-botao-custom")[0].onclick = function () {
-    gameSelecionado = "forza-horizon";
-  };
-
-  //WOW CUSTOM
-  $("#wow-botao-custom")[0].onclick = function () {
-    gameSelecionado = "wow";
-  };
-
-  //CYBERPUNK CUSTOM
-  $("#cyberpunk-botao-custom")[0].onclick = function () {
-    gameSelecionado = "cyberpunk";
-  };
-
-  //MORTALKOMBAT CUSTOM
-  $("#mortalkombat1-botao-custom")[0].onclick = function () {
-    gameSelecionado = "morta-kombat1";
-  };
+  // CUSTOM (mesmos mapeamentos dos botões “custom”)
+  $("#launcher-botao-custom")[0].onclick = function () { gameSelecionado = "bcg"; };
+  $("#fifa23-botao-custom")[0].onclick = function () { gameSelecionado = "fifa23"; };
+  $("#csgo-botao-custom")[0].onclick = function () { gameSelecionado = "cs-go"; };
+  $("#bdo-botao-custom")[0].onclick = function () { gameSelecionado = "blackdesert"; };
+  $("#warzone-botao-custom")[0].onclick = function () { gameSelecionado = "cod"; };
+  $("#warzonesteam-botao-custom")[0].onclick = function () { gameSelecionado = "cod-steam"; };
+  $("#eldenring-botao-custom")[0].onclick = function () { gameSelecionado = "eldenring"; };
+  $("#gtav-steam-botao-custom")[0].onclick = function () { gameSelecionado = "gtav-steam"; };
+  $("#gtav-epic-botao-custom")[0].onclick = function () { gameSelecionado = "gtav-epic"; };
+  $("#gtav-rockstar-botao-custom")[0].onclick = function () { gameSelecionado = "gtav-rockstar"; };
+  $("#hlegacy-botao-custom")[0].onclick = function () { gameSelecionado = "hlegacy"; };
+  $("#god-of-war-botao-custom")[0].onclick = function () { gameSelecionado = "god-of-war"; };
+  $("#fifa22-botao-custom")[0].onclick = function () { gameSelecionado = "fifa22"; };
+  $("#lostark-botao-custom")[0].onclick = function () { gameSelecionado = "lostark"; };
+  $("#reddead-botao-custom")[0].onclick = function () { gameSelecionado = "reddead"; };
+  $("#rleague-epic-botao-custom")[0].onclick = function () { gameSelecionado = "rleague-epic"; };
+  $("#rleague-steam-botao-custom")[0].onclick = function () { gameSelecionado = "rleague-steam"; };
+  $("#reddead-epic-botao-custom")[0].onclick = function () { gameSelecionado = "reddead-epic"; };
+  $("#reddead-botao-custom")[0].onclick = function () { gameSelecionado = "reddead"; };
+  $("#horizonzerodawn-botao-custom")[0].onclick = function () { gameSelecionado = "horizonzerodawn"; };
+  $("#overwatch-botao-custom")[0].onclick = function () { gameSelecionado = "overwatch"; };
+  $("#baldurs-botao-custom")[0].onclick = function () { gameSelecionado = "baldurs-gate3"; };
+  $("#starfield-botao-custom")[0].onclick = function () { gameSelecionado = "starfield"; };
+  $("#starfield-xbox-botao-custom")[0].onclick = function () { gameSelecionado = "starfield-xbox"; };
+  $("#seaofthieves-botao-custom")[0].onclick = function () { gameSelecionado = "seaofthieves"; };
+  $("#seaofthieves-steam-botao-custom")[0].onclick = function () { gameSelecionado = "sea-steam"; };
+  $("#forzahorizon5-botao-custom")[0].onclick = function () { gameSelecionado = "forza-horizon"; };
+  $("#wow-botao-custom")[0].onclick = function () { gameSelecionado = "wow"; };
+  $("#cyberpunk-botao-custom")[0].onclick = function () { gameSelecionado = "cyberpunk"; };
+  $("#mortalkombat1-botao-custom")[0].onclick = function () { gameSelecionado = "morta-kombat1"; };
 });
