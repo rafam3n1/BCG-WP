@@ -1,6 +1,4 @@
 let socket = io.connect("https://api.grupobright.com");
-let tokenSalvo;
-let tokenCustom;
 
 socket.on("criado", async function (mesg) {
   $("#jogos")[0].style.display = "none";
@@ -100,17 +98,14 @@ socket.on("authed", async function (msg) {
 socket.on("connect", async function (msg) {
   socket.emit("getVms", "");
 
-  let tokenSelecionado;
   while (true) {
-    await fetch("https://grupobright.com/userlogin.php").then(async function (
-      response
-    ) {
-      tokenSelecionado = await response.text();
-      console.log("Conectado ao Servidor");
-      console.log("Servidor: " + tokenSelecionado);
-      socket.emit("newAuth", tokenSelecionado);
-      tokenSalvo = tokenSelecionado;
-    });
+    try {
+      const response = await fetch("https://grupobright.com/userlogin.php", { cache: "no-store" });
+      const token = await response.text();
+      socket.emit("newAuth", token);
+    } catch (e) {
+      console.error("Falha ao obter token", e);
+    }
 
     await new Promise((res) => setTimeout(res, 4 * 60 * 60 * 1000));
 
