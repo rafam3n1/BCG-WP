@@ -1,4 +1,5 @@
 let socket = io.connect("https://api.grupobright.com");
+let lastAuthToken = null;
 
 socket.on("criado", async function (mesg) {
   $("#jogos")[0].style.display = "none";
@@ -90,6 +91,7 @@ socket.on("connect", async function (msg) {
     try {
       const response = await fetch("https://grupobright.com/userlogin.php", { cache: "no-store" });
       const token = await response.text();
+      lastAuthToken = token;
       socket.emit("newAuth", token);
     } catch (e) {
       console.error("Falha ao obter token", e);
@@ -160,16 +162,6 @@ socket.on("avaliable", function (msg) {
   const rtxY = parseInt(msg.rtx.split(': ')[1], 10);
   const total = gtxY + rtxY;
   $("#label_total")[0].querySelector("span").innerHTML = `RTX: ${rtxY} e Total: ${total}`;
-
-  /*
-  var disponiveis = document.getElementById("disponiveis");
-  var listItems = disponiveis.querySelectorAll("li");
-  listItems[0].querySelector(".elementor-icon-list-text").textContent = msg.google; // GOOGLE
-  listItems[1].querySelector(".elementor-icon-list-text").textContent = msg.azure;  // AZURE
-  listItems[2].querySelector(".elementor-icon-list-text").textContent = msg.priority; // priority
-  listItems[3].querySelector(".elementor-icon-list-text").textContent = msg.rtx;   // RTX
-  listItems[4].querySelector(".elementor-icon-list-text").textContent = msg.gtx;   // GTX
-  */
 });
 
 socket.on("assinatura", async function (msg) {
@@ -220,7 +212,6 @@ socket.on("fisica2", async function (msg) {
   socket.emit("vmCommand", { evento: "CreateVM" });
 });
 
-// REMOVIDO: handler conflitante de "fila" (mantemos apenas "status")
 socket.on("vmCheckStatus", function (msg) {
   const statuses = {
     RUNNING: `<font color="#ffffff"><text>Status da máquina:</text></font> <font color="#33cc33"><text>Ligada</text></font>`,
@@ -234,14 +225,33 @@ $(document).ready(function () {
   console.log("Pagina carregada");
 
   $("#priority-botao")[0].onclick = async function () {
-    let tokenPriority;
-    await fetch("https://grupobright.com/checkpriority.php").then(
-      async function (response) {
-        tokenPriority = await response.text();
-        console.log("Response checagem priority: " + tokenPriority);
-        socket.emit("checarAssinatura", tokenPriority);
+    try {
+      let url;
+      if (lastAuthToken && typeof lastAuthToken === "string" && lastAuthToken.length > 10) {
+        url = `https://grupobright.com/checkpriority.php?json=1&token=${encodeURIComponent(lastAuthToken)}`;
+      } else {
+        url = "https://grupobright.com/checkpriority.php";
       }
-    );
+
+      const resp = await fetch(url, { method: "GET", cache: "no-store" });
+      const body = await resp.text();
+
+      if (!resp.ok) {
+        console.error("Erro checkpriority", resp.status, body);
+        return;
+      }
+
+      let tokenPriority = body;
+      try {
+        const parsed = JSON.parse(body);
+        if (parsed && parsed.token) tokenPriority = parsed.token;
+      } catch (_) { /* não era JSON, segue com texto */ }
+
+      console.log("Response checagem priority:", tokenPriority);
+      socket.emit("checarAssinatura", tokenPriority);
+    } catch (e) {
+      console.error("Falha ao checar priority:", e);
+    }
   };
 
   // SETANDO JOGOS QUANDO CLICA NO BOTAO
