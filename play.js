@@ -326,9 +326,16 @@
     $("#loading-reset")[0].onclick = function () {
       elementorProFrontend.modules.popup.showPopup({ id: 49488 });
       $("#resetar-botao")[0].onclick = function () {
+        // PRIMEIRO: Cancelar a criação em andamento
+        socket.emit("sair", "sairFila");
+
+        // DEPOIS: Resetar/deletar a VM do Proxmox
         socket.emit("reset", "");
+
+        // Manter na tela de loading
         $("#loading")[0].style.display = "flex";
         $("#vm-criada")[0].style.display = "none";
+        $("#jogos")[0].style.display = "none";
       };
     };
 
