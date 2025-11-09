@@ -1,9 +1,10 @@
 (function($) {
   'use strict';
 
-  let socket = io.connect("https://api.grupobright.com");
-  let lastAuthToken = null;
-  window.gameSelecionado = "bcg"; // Garantir que está disponível globalmente
+  // Tornar socket e lastAuthToken globais para serem acessíveis em popups do Elementor
+  window.socket = io.connect("https://api.grupobright.com");
+  window.lastAuthToken = null;
+  window.gameSelecionado = "bcg";
 
   socket.on("criado", async function (mesg) {
     $("#jogos")[0].style.display = "none";
@@ -95,7 +96,7 @@
       try {
         const response = await fetch("https://grupobright.com/userlogin.php", { cache: "no-store" });
         const token = await response.text();
-        lastAuthToken = token;
+        window.lastAuthToken = token;
         socket.emit("newAuth", token);
       } catch (e) {
         console.error("Falha ao obter token", e);
@@ -105,7 +106,7 @@
 
       socket.disconnect();
       await new Promise((res) => setTimeout(res, 3000));
-      socket = io.connect("https://api.grupobright.com");
+      window.socket = io.connect("https://api.grupobright.com");
     }
   });
 
@@ -238,8 +239,8 @@
     $("#priority-botao")[0].onclick = async function () {
       try {
         let url;
-        if (lastAuthToken && typeof lastAuthToken === "string" && lastAuthToken.length > 10) {
-          url = `https://grupobright.com/checkpriority.php?json=1&token=${encodeURIComponent(lastAuthToken)}`;
+        if (window.lastAuthToken && typeof window.lastAuthToken === "string" && window.lastAuthToken.length > 10) {
+          url = `https://grupobright.com/checkpriority.php?json=1&token=${encodeURIComponent(window.lastAuthToken)}`;
         } else {
           url = "https://grupobright.com/checkpriority.php";
         }
@@ -256,7 +257,7 @@
         try {
           const parsed = JSON.parse(body);
           if (parsed && parsed.token) tokenPriority = parsed.token;
-        } catch (_) { /* não era JSON, segue com texto */ }
+        } catch (_) { }
 
         console.log("Response checagem priority:", tokenPriority);
         socket.emit("checarAssinatura", tokenPriority);
@@ -296,17 +297,14 @@
     $("#cyberpunk-botao")[0].onclick = function () { window.gameSelecionado = "cyberpunk"; };
     $("#mortalkombat1-botao")[0].onclick = function () { window.gameSelecionado = "morta-kombat1"; };
 
-    // SETANDO PIN MOON
     $("#pair-button")[0].onclick = function () {
       socket.emit("auth", $("#form-field-pin")[0].value);
     };
 
-    // WIREGUARD
     $("#wireguard-conf")[0].onclick = function () {
       socket.emit("wireguard");
     };
 
-    // DESLIGAR VM
     $("#desligarvm-botao")[0].onclick = function () {
       socket.emit("interromper", {
         feedback: "Feedback setado automaticamente (site novo)",
@@ -316,7 +314,6 @@
       $("#jogos")[0].style.display = "flex";
     };
 
-    // RESETAR VM (botão na VM criada)
     $("#popupreset-botao")[0].onclick = function () {
       elementorProFrontend.modules.popup.showPopup({ id: 49488 });
       $("#resetar-botao")[0].onclick = function () {
@@ -326,7 +323,6 @@
       };
     };
 
-    // RESETAR VM (botão na tela de loading)
     $("#loading-reset")[0].onclick = function () {
       elementorProFrontend.modules.popup.showPopup({ id: 49488 });
       $("#resetar-botao")[0].onclick = function () {
@@ -336,12 +332,11 @@
       };
     };
 
-    // INTERROMPER
     $("#interromper-botao")[0].onclick = function () {
       socket.emit("sair", "sairFila");
     };
 
-    // CUSTOM (mesmos mapeamentos dos botões "custom")
+    // CUSTOM
     $("#launcher-botao-custom")[0].onclick = function () { window.gameSelecionado = "bcg"; };
     $("#fifa23-botao-custom")[0].onclick = function () { window.gameSelecionado = "fifa23"; };
     $("#csgo-botao-custom")[0].onclick = function () { window.gameSelecionado = "cs-go"; };
