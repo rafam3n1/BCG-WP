@@ -323,7 +323,7 @@ $(document).ready(function () {
     $("#jogos")[0].style.display = "flex";
   };
 
-  // RESETAR VM
+  // RESETAR VM (botão na VM criada)
   $("#popupreset-botao")[0].onclick = function () {
     elementorProFrontend.modules.popup.showPopup({ id: 49488 });
     $("#resetar-botao")[0].onclick = function () {
@@ -333,9 +333,14 @@ $(document).ready(function () {
     };
   };
 
- // RESETAR VM (botão na tela de loading com confirmação)
+  // RESETAR VM (botão na tela de loading)
   $("#loading-reset")[0].onclick = function () {
     elementorProFrontend.modules.popup.showPopup({ id: 49488 });
+    $("#resetar-botao")[0].onclick = function () {
+      socket.emit("reset", "");
+      $("#loading")[0].style.display = "flex";
+      $("#vm-criada")[0].style.display = "none";
+    };
   };
 
   $("#interromper-botao")[0].onclick = function () {
